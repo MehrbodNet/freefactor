@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سیستم مدیریت و صدور فاکتور هزار و یک | چاپ مستقیم فاکتور آنلاین</title>
+<meta name="description" content="سیستم مدیریت و صدور فاکتور هزار و یک - ابزار آنلاین و حرفه‌ای برای ساخت، ویرایش و صدور فاکتور رسمی مالیاتی و فاکتور ساده فروش به همراه امکان چاپ مستقیم و دانلود فایل PDF سریع.">
+<meta name="keywords" content="سیستم صدور فاکتور, فاکتور آنلاین, فاکتور رسمی مالیاتی, ساخت فاکتور هزار و یک, صدور پیش فاکتور, فاکتور فروش کالا, نرم افزار فاکتور رایگان, چاپ مستقیم فاکتور, دانلود فاکتور PDF, فاکتور شیک">
+<meta name="robots" content="index, follow">
+<meta name="author" content="هزار و یک">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="سیستم مدیریت و صدور فاکتور هزار و یک | چاپ مستقیم و PDF">
+<meta property="og:description" content="فاکتورهای رسمی و ساده خود را به صورت آنلاین مدیریت کنید، پرینت بگیرید یا به صورت PDF دانلود کنید.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "سیستم مدیریت و صدور فاکتور هزار و یک",
+  "description": "برنامه تحت وب صدور و چاپ مستقیم فاکتورهای رسمی مالیاتی و ساده با خروجی استاندارد PDF با حاشیه دقیق.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All"
+}
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+[data-theme="dark"]{--bg:#0c0f1a;--card:#151929;--inp:#0c0f1a;--bdr:#1e2235;--bdrh:#2a3048;--txt:#e2e8f0;--mut:#8b92a5;--dim:#6b7280;--sb:#2a2f45;--hbg:rgba(12,15,26,.92);--tbg:#2a2f45;--hvr:#1a1f33;--bsc:#1a1f33}
+[data-theme="light"]{--bg:#eef0f4;--card:#fff;--inp:#f8fafc;--bdr:#dde1e8;--bdrh:#c5cad4;--txt:#1e293b;--mut:#64748b;--dim:#94a3b8;--sb:#dde1e8;--hbg:rgba(255,255,255,.92);--tbg:#d1d5db;--hvr:#f1f5f9;--bsc:#f1f5f9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--sb)}::-webkit-scrollbar-thumb{background:var(--bdrh);border-radius:3px}
+.sc{background:var(--card);border:1px solid var(--bdr);border-radius:14px;overflow:hidden;transition:border-color .3s,background .3s}
+.sc:hover{border-color:var(--bdrh)}
+.sh{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;cursor:pointer;user-select:none;transition:background .2s}
+.sh:hover{background:var(--hvr)}
+.sh span{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px}
+.sh .ar{transition:transform .3s;font-size:11px;color:var(--dim)}
+.sh .ar.ro{transform:rotate(-90deg)}
+.sb{max-height:2000px;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 16px 16px}
+.sb.cl{max-height:0;padding-top:0;padding-bottom:0}
+.fd{display:flex;flex-direction:column;gap:3px}
+.fd label{font-size:10.5px;color:var(--mut);font-weight:500}
+.fd input,.fd textarea{background:var(--inp);border:1px solid var(--bdr);border-radius:9px;padding:7px 11px;color:var(--txt);font-size:13px;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.fd input:focus,.fd textarea:focus{border-color:#e5a00d;box-shadow:0 0 0 3px rgba(229,160,13,.12)}
+.fd input[type="number"]{direction:ltr;text-align:right}
+.fd textarea{resize:vertical;min-height:50px}
+.sel-date{background:var(--inp);border:1px solid var(--bdr);border-radius:9px;padding:7px;color:var(--txt);font-size:12.5px;outline:none;cursor:pointer;font-family:inherit;flex:1;transition:all .2s;text-align:center;}
+.sel-date:hover{border-color:var(--bdrh);}
+.sel-date:focus{border-color:#e5a00d;box-shadow:0 0 0 3px rgba(229,160,13,.12);}
+.co{width:26px;height:26px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:border-color .2s,transform .2s;flex-shrink:0}
+.co:hover{transform:scale(1.15)}.co.ac{border-color:var(--txt);transform:scale(1.15)}
+.ccw{width:26px;height:26px;border-radius:50%;border:2px dashed var(--bdrh);position:relative;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .2s,transform .2s;overflow:hidden}
+.ccw:hover{transform:scale(1.15)}.ccw.ac{border-style:solid;border-color:var(--txt)}
+.ccw input{position:absolute;inset:-5px;width:40px;height:40px;opacity:0;cursor:pointer}
+.rc{display:flex;align-items:center;gap:6px;padding:7px 13px;border-radius:9px;border:1px solid var(--bdr);cursor:pointer;transition:all .2s;font-size:12.5px;flex-shrink:0;user-select:none}
+.rc:hover{border-color:var(--bdrh)}.rc.ac{border-color:#e5a00d;background:rgba(229,160,13,.1);color:#e5a00d;font-weight:600}
+.rc input{display:none}
+.icard{background:var(--inp);border:1px solid var(--bdr);border-radius:12px;padding:12px;transition:border-color .2s}
+.icard:hover{border-color:var(--bdrh)}
+.inum{background:linear-gradient(135deg,#e5a00d,#d97706);color:#000;font-size:10px;font-weight:700;width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bp{background:linear-gradient(135deg,#e5a00d,#d97706);color:#000;font-weight:700;border:none;border-radius:10px;padding:9px 18px;cursor:pointer;font-family:inherit;font-size:12.5px;transition:all .2s;display:flex;align-items:center;gap:7px}
+.bp:hover{transform:translateY(-1px);box-shadow:0 4px 15px rgba(229,160,13,.3)}.bp:active{transform:translateY(0)}
+.bsec{background:var(--bsc);color:var(--txt);font-weight:600;border:1px solid var(--bdr);border-radius:10px;padding:9px 18px;cursor:pointer;font-family:inherit;font-size:12.5px;transition:all .2s;display:flex;align-items:center;gap:7px}
+.bsec:hover{border-color:var(--bdrh);background:var(--hvr)}
+.sm{padding:5px 12px;font-size:11px;border-radius:8px}
+.bd{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.2);border-radius:7px;padding:3px 9px;cursor:pointer;font-size:11px;font-family:inherit;transition:all .2s}
+.bd:hover{background:rgba(239,68,68,.2)}
+.ur{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ur .fn{font-size:10px;color:var(--mut);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.thmb{width:44px;height:44px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr);margin-top:5px}
+.tc{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.tt{padding:11px 18px;border-radius:11px;font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:8px;opacity:0;transform:translateY(-10px);transition:all .3s;white-space:nowrap;pointer-events:auto}
+.tt.shw{opacity:1;transform:translateY(0)}
+.tt-s{background:#065f46;color:#6ee7b7;border:1px solid #10b981}
+.tt-e{background:#7f1d1d;color:#fca5a5;border:1px solid #ef4444}
+.lo{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.spn{width:36px;height:36px;border:4px solid rgba(229,160,13,.2);border-top-color:#e5a00d;border-radius:50%;animation:spi .8s linear infinite}
+@keyframes spi{to{transform:rotate(360deg)}}
+.psc{overflow:auto;max-height:calc(100vh - 100px);border-radius:10px}
+#invprev{width:800px;min-height:400px;background:#fff;direction:rtl;font-family:'Vazirmatn',sans-serif;margin:0 auto;color:#111;transform-origin:top right}
+.tbtn{position:fixed;bottom:22px;left:22px;z-index:50;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--bdr);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px;color:#e5a00d;transition:all .3s;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.tbtn:hover{transform:scale(1.1);box-shadow:0 6px 22px rgba(229,160,13,.25)}
+.tg{width:38px;height:20px;border-radius:10px;background:var(--tbg);position:relative;transition:background .3s;flex-shrink:0;cursor:pointer}
+.tg.on{background:#e5a00d}
+.tk{width:16px;height:16px;border-radius:50%;background:#fff;position:absolute;top:2px;right:2px;transition:right .3s}
+.tg.on .tk{right:20px}
+@media(max-width:1023px){.psc{max-height:none}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:0s!important;transition-duration:0s!important}}
+</style>
+</head>
+<body data-theme="light">
+
+<div class="tc" id="TC"></div>
+<div id="LO" class="lo" style="display:none"><div style="background:var(--card);border-radius:14px;padding:26px 36px;display:flex;flex-direction:column;align-items:center;gap:12px;border:1px solid var(--bdr)"><div class="spn"></div><span style="font-size:13px;font-weight:600">در حال پردازش خروجی...</span></div></div>
+
+<button class="tbtn" onclick="togTheme()" title="تغییر تم" aria-label="تغییر تم"><i class="fas fa-moon" id="TIC"></i></button>
+
+<header style="position:sticky;top:0;z-index:40;background:var(--hbg);backdrop-filter:blur(16px);border-bottom:1px solid var(--bdr);transition:background .3s">
+<div style="max-width:1600px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+<div style="display:flex;align-items:center;gap:10px">
+<div style="width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#e5a00d,#d97706);display:flex;align-items:center;justify-content:center"><i class="fas fa-file-invoice" style="color:#000;font-size:16px"></i></div>
+<div><h1 style="font-size:15px;font-weight:800">سیستم مدیریت و صدور فاکتور هزار و یک</h1><p style="font-size:10px;color:var(--mut)">ساخت فاکتور رسمی، چاپ مستقیم فاکتور آنلاین و دانلود فایل PDF و عکس</p></div>
+</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<button class="bsec sm" onclick="togPreview()" type="button"><i class="fas fa-eye-slash" id="prevBtnIcon"></i> <span id="prevBtnText">مخفی‌سازی پیش‌نمایش</span></button>
+<button class="bsec sm" onclick="printInv()" type="button"><i class="fas fa-print"></i> چاپ مستقیم</button>
+<button class="bsec sm" onclick="document.getElementById('PP').scrollIntoView({behavior:'smooth'})" type="button" id="mobPrevBtn" style="display:none;"><i class="fas fa-eye"></i> پیش‌نمایش</button>
+<button class="bp sm" style="background:linear-gradient(135deg,#10b981,#059669);" onclick="dlImg()" type="button"><i class="fas fa-image"></i> دانلود عکس</button>
+<button class="bp sm" onclick="dlPDF()" type="button"><i class="fas fa-file-pdf"></i> دانلود PDF</button>
+</div>
+</div>
+</header>
+
+<main style="max-width:1600px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1fr 420px;gap:16px" id="MG">
+
+<div style="display:flex;flex-direction:column;gap:12px">
+
+<div class="sc"><div class="sh" onclick="togSec(this)"><span><i class="fas fa-cog" style="color:#e5a00d"></i> تنظیمات اصلی فاکتور</span><i class="fas fa-chevron-down ar"></i></div>
+<div class="sb">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div class="fd"><label>شماره فاکتور / سریال</label><input type="text" id="fNum" placeholder="مثلاً 541254" oninput="render()"></div>
+<div class="fd"><label>تاریخ فاکتور</label>
+<div style="display:flex;gap:5px;direction:rtl;">
+<select id="fDay" onchange="render()" class="sel-date" title="روز"></select>
+<select id="fMonth" onchange="render()" class="sel-date" title="ماه" style="flex:1.5;"></select>
+<select id="fYear" onchange="render()" class="sel-date" title="سال"></select>
+</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+<div class="fd"><label>درصد ارزش افزوده مالیاتی</label><div style="display:flex;align-items:center;gap:9px"><input type="number" id="fVAT" value="10" min="0" max="100" oninput="render()" style="width:70px"><div style="display:flex;align-items:center;gap:7px;cursor:pointer" onclick="togVAT()"><div class="tg on" id="vTG"><div class="tk"></div></div><span style="font-size:11px;color:var(--mut)" id="vLB">فعال</span></div></div></div>
+<div class="fd"><label>نوع فاکتور فروش</label><div style="display:flex;gap:7px"><label class="rc ac" id="tS" onclick="setTmpl(false)"><input type="radio" name="tmpl" checked> ساده</label><label class="rc" id="tO" onclick="setTmpl(true)"><input type="radio" name="tmpl"> رسمی مالیاتی</label></div></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+<div class="fd"><label>واحد پول فاکتور</label><div style="display:flex;gap:7px"><label class="rc ac" id="cR" onclick="setCur('ریال')"><input type="radio" name="cur" checked> ریال</label><label class="rc" id="cT" onclick="setCur('تومان')"><input type="radio" name="cur"> تومان</label></div></div>
+<div class="fd"><label>رنگ قالب فاکتور</label><div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center" id="CP"></div></div>
+</div>
+<div style="margin-top:10px"><label class="rc" id="piL" style="display:inline-flex"><input type="checkbox" id="fPre" onchange="togPre()"><i class="fas fa-check" style="font-size:10px;color:transparent;transition:color .2s" id="piC"></i> پیش فاکتور باشد</label></div>
+</div></div>
+
+<div class="sc"><div class="sh" onclick="togSec(this)"><span><i class="fas fa-store" style="color:#10b981"></i> مشخصات فروشنده کالا و خدمات</span><i class="fas fa-chevron-down ar"></i></div>
+<div class="sb">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
+<div class="fd" style="grid-column:span 2"><label>نام شخص حقیقی / حقوقی فروشنده</label><input type="text" id="sN" oninput="render()"></div>
+<div class="fd"><label>شماره اقتصادی</label><input type="text" id="sE" oninput="render()"></div>
+<div class="fd"><label>شماره ثبت شرکت</label><input type="text" id="sR" oninput="render()"></div>
+<div class="fd" style="grid-column:span 2"><label>نشانی کامل فروشنده</label><input type="text" id="sA" oninput="render()"></div>
+<div class="fd"><label>استان</label><input type="text" id="sP" oninput="render()"></div>
+<div class="fd"><label>شهرستان</label><input type="text" id="sCi" oninput="render()"></div>
+<div class="fd"><label>کد پستی ده رقمی</label><input type="text" id="sPo" oninput="render()" maxlength="10"></div>
+<div class="fd"><label>شناسه ملی</label><input type="text" id="sNa" oninput="render()"></div>
+<div class="fd" style="grid-column:span 2"><label>تلفن / فکس</label><input type="text" id="sPh" oninput="render()"></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+<div class="fd"><label>لوگوی فروشنده</label><div class="ur"><input type="file" id="lI" accept="image/*" style="display:none" onchange="upLogo(event)"><button class="bsec sm" onclick="document.getElementById('lI').click()" type="button"><i class="fas fa-upload"></i> آپلود لوگو</button><span class="fn" id="lNm">فایلی انتخاب نشده</span><button id="lRm" class="bd" style="display:none" onclick="rmLogo()" type="button"><i class="fas fa-times"></i></button></div><img id="lTh" class="thmb" style="display:none"></div>
+<div class="fd"><label>مهر و امضای فروشنده</label><div class="ur"><input type="file" id="sI" accept="image/*" style="display:none" onchange="upStamp(event)"><button class="bsec sm" onclick="document.getElementById('sI').click()" type="button"><i class="fas fa-upload"></i> آپلود مهر</button><span class="fn" id="sNm2">فایلی انتخاب نشده</span><button id="sRm2" class="bd" style="display:none" onclick="rmStamp()" type="button"><i class="fas fa-times"></i></button></div><img id="sTh2" class="thmb" style="display:none"></div>
+</div>
+</div></div>
+
+<div class="sc"><div class="sh" onclick="togSec(this)"><span><i class="fas fa-user" style="color:#3b82f6"></i> مشخصات خریدار کالا</span><i class="fas fa-chevron-down ar"></i></div>
+<div class="sb">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
+<div class="fd" style="grid-column:span 2"><label>نام شخص حقیقی / حقوقی خریدار</label><input type="text" id="bN" oninput="render()"></div>
+<div class="fd"><label>شماره اقتصادی خریدار</label><input type="text" id="bE" oninput="render()"></div>
+<div class="fd"><label>شماره ثبت خریدار</label><input type="text" id="bR" oninput="render()"></div>
+<div class="fd" style="grid-column:span 2"><label>نشانی کامل خریدار</label><input type="text" id="bA" oninput="render()"></div>
+<div class="fd"><label>استان</label><input type="text" id="bP" oninput="render()"></div>
+<div class="fd"><label>شهرستان</label><input type="text" id="bCi" oninput="render()"></div>
+<div class="fd"><label>کد پستی ده رقمی خریدار</label><input type="text" id="bPo" oninput="render()" maxlength="10"></div>
+<div class="fd"><label>شناسه ملی</label><input type="text" id="bNa" oninput="render()"></div>
+<div class="fd" style="grid-column:span 2"><label>تلفن / فکس خریدار</label><input type="text" id="bPh" oninput="render()"></div>
+</div></div></div>
+
+<div class="sc"><div class="sh" onclick="togSec(this)"><span><i class="fas fa-list" style="color:#8b5cf6"></i> آیتم‌های فاکتور و خدمات</span><i class="fas fa-chevron-down ar"></i></div>
+<div class="sb"><div id="IC" style="display:flex;flex-direction:column;gap:9px"></div><button class="bsec sm" style="margin-top:10px;width:100%;justify-content:center" onclick="addItem()" type="button"><i class="fas fa-plus"></i> افزودن آیتم جدید کالا</button></div></div>
+
+<div class="sc"><div class="sh" onclick="togSec(this)"><span><i class="fas fa-comment-dots" style="color:#ec4899"></i> توضیحات و شرایط پرداخت فاکتور</span><i class="fas fa-chevron-down ar"></i></div>
+<div class="sb">
+<div style="display:flex;gap:14px;margin-bottom:9px;flex-wrap:wrap">
+<label class="rc" id="caL"><input type="checkbox" id="fCa" onchange="togPay()"> نقدی</label>
+<label class="rc" id="ncL"><input type="checkbox" id="fNc" onchange="togPay()"> غیرنقدی</label>
+</div>
+<div class="fd"><label>توضیحات تکمیلی فاکتور</label><textarea id="fNo" oninput="render()"></textarea></div>
+</div></div>
+
+</div>
+
+<!-- بخش پیش‌نمایش زنده فاکتور فروش -->
+<div style="position:sticky;top:70px;height:calc(100vh - 90px)" id="PP">
+<div style="background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:12px;height:100%;display:flex;flex-direction:column;transition:background .3s,border-color .3s">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+<span style="font-size:12px;font-weight:700;color:var(--mut)"><i class="fas fa-eye" style="margin-left:5px"></i>پیش‌نمایش آنلاین فاکتور</span>
+<div style="display:flex;gap:6px">
+<button class="bp sm" onclick="dlImg()" style="background:linear-gradient(135deg,#10b981,#059669);padding:4px 10px;font-size:10px" type="button"><i class="fas fa-image"></i> دانلود عکس</button>
+<button class="bp sm" onclick="dlPDF()" style="padding:4px 10px;font-size:10px" type="button"><i class="fas fa-file-pdf"></i> دانلود PDF</button>
+</div>
+</div>
+<div class="psc" style="flex:1;background:var(--sb);border-radius:8px;padding:10px;transition:background .3s" id="PSc">
+<div id="invprev"></div>
+</div></div></div>
+
+</main>
+
+<script>
+var cur='ریال',vatOn=true,isOff=false,isPre=false,iColor='#000000',logo=null,stamp=null,renderTO=null;
+var isPreviewVisible=true; 
+var COLS=[{n:'مشکی',v:'#000000'},{n:'سبز',v:'#16a34a'},{n:'آبی',v:'#2563eb'},{n:'قرمز',v:'#dc2626'},{n:'نارنجی',v:'#ea580c'},{n:'بنفش',v:'#7c3aed'},{n:'فیروزه‌ای',v:'#0891b2'},{n:'صورتی',v:'#db2777'},{n:'خاکستری',v:'#475569'},{n:'قهوه‌ای',v:'#92400e'}];
+
+function fa(n){if(n===null||n===undefined)return'';return String(n).replace(/\d/g,function(d){return'۰۱۲۳۴۵۶۷۸۹'[d]})}
+function fm(n){if(!n&&n!==0)return'';return fa(Number(n).toLocaleString('en-US'))}
+
+/* توابع تبدیل تاریخ شمسی */
+function g2s(gy,gm,gd){var g=[0,31,59,90,120,151,181,212,243,273,304,334],g2=gm>2?gy+1:gy,d=355666+365*gy+Math.floor((g2+3)/4)-Math.floor((g2+99)/100)+Math.floor((g2+399)/400)+gd+g[gm-1],jy=-1595+33*Math.floor(d/12053);d%=12053;jy+=4*Math.floor(d/1461);d%=1461;if(d>365){jy+=Math.floor((d-1)/365);d=(d-1)%365}return d<186?[jy,1+Math.floor(d/31),1+d%31]:[jy,7+Math.floor((d-186)/30),1+(d-186)%30]}
+
+/* پر کردن منوهای کشویی تاریخ */
+function initDt(){
+var t=new Date(), r=g2s(t.getFullYear(), t.getMonth()+1, t.getDate());
+var currYear=r[0], currMonth=r[1], currDay=r[2];
+
+var dSel=document.getElementById('fDay');
+for(var i=1;i<=31;i++) dSel.innerHTML+='<option value="'+i+'"'+(i===currDay?' selected':'')+'>'+fa(i)+'</option>';
+
+var mSel=document.getElementById('fMonth');
+var SM=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+for(var i=0;i<12;i++) mSel.innerHTML+='<option value="'+(i+1)+'"'+((i+1)===currMonth?' selected':'')+'>'+SM[i]+'</option>';
+
+var ySel=document.getElementById('fYear');
+for(var i=currYear-5;i<=currYear+5;i++) ySel.innerHTML+='<option value="'+i+'"'+(i===currYear?' selected':'')+'>'+fa(i)+'</option>';
+}
+
+function togVAT(){vatOn=!vatOn;document.getElementById('vTG').classList.toggle('on',vatOn);document.getElementById('vLB').textContent=vatOn?'فعال':'غیرفعال';render()}
+function setTmpl(o){isOff=o;document.getElementById('tS').classList.toggle('ac',!o);document.getElementById('tO').classList.toggle('ac',o);render()}
+function setCur(c){cur=c;document.getElementById('cR').classList.toggle('ac',c==='ریال');document.getElementById('cT').classList.toggle('ac',c==='تومان');render()}
+function togPre(){isPre=document.getElementById('fPre').checked;document.getElementById('piL').classList.toggle('ac',isPre);document.getElementById('piC').style.color=isPre?'#e5a00d':'transparent';render()}
+function togPay(){document.getElementById('caL').classList.toggle('ac',document.getElementById('fCa').checked);document.getElementById('ncL').classList.toggle('ac',document.getElementById('fNc').checked);render()}
+function togSec(h){h.nextElementSibling.classList.toggle('cl');h.querySelector('.ar').classList.toggle('ro')}
+function togTheme(){var b=document.body,i=document.getElementById('TIC');if(b.getAttribute('data-theme')==='dark'){b.setAttribute('data-theme','light');i.className='fas fa-moon'}else{b.setAttribute('data-theme','dark');i.className='fas fa-sun'}scPr()}
+
+function togPreview(){
+isPreviewVisible=!isPreviewVisible;
+onRS();
+}
+
+function initCol(){var c=document.getElementById('CP');COLS.forEach(function(co,i){var d=document.createElement('div');d.className='co'+(i===0?' ac':'');d.style.background=co.v;if(co.v==='#000000')d.style.outline='1px solid #444';d.title=co.n;d.onclick=function(){document.querySelectorAll('.co').forEach(function(x){x.classList.remove('ac')});document.querySelector('.ccw').classList.remove('ac');d.classList.add('ac');iColor=co.v;render()};c.appendChild(d)});var w=document.createElement('div');w.className='ccw';w.title='رنگ سفارشی';w.innerHTML='<input type="color" value="#e5a00d"><i class="fas fa-palette" style="font-size:9px;color:var(--mut);pointer-events:none"></i>';w.querySelector('input').addEventListener('input',function(e){document.querySelectorAll('.co').forEach(function(x){x.classList.remove('ac')});w.classList.add('ac');iColor=e.target.value;render()});c.appendChild(w)}
+
+function addItem(){var n=document.querySelectorAll('#IC .icard').length+1;var d=document.createElement('div');d.className='icard';d.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px"><div style="display:flex;align-items:center;gap:7px"><div class="inum">'+fa(n)+'</div><span style="font-size:12px;font-weight:600">آیتم '+fa(n)+'</span></div><button class="bd" onclick="rmItem(this)" type="button"><i class="fas fa-trash-alt"></i> حذف</button></div><div style="display:grid;grid-template-columns:1fr 2fr;gap:7px"><div class="fd"><label>کد کالا</label><input type="text" class="jc" oninput="render()"></div><div class="fd"><label>شرح کالا یا خدمات</label><input type="text" class="jd" oninput="render()"></div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:7px;margin-top:7px"><div class="fd"><label>تعداد</label><input type="number" class="jq" value="0" min="0" oninput="render()"></div><div class="fd"><label>واحد</label><input type="text" class="ju" placeholder="عدد" oninput="render()"></div><div class="fd"><label>مبلغ واحد</label><input type="number" class="jp" value="0" min="0" oninput="render()"></div><div class="fd"><label>تخفیف</label><input type="number" class="ji" value="0" min="0" oninput="render()"></div></div>';document.getElementById('IC').appendChild(d);render()}
+function rmItem(b){b.closest('.icard').remove();rnIt();render()}
+function rnIt(){document.querySelectorAll('.icard').forEach(function(c,i){c.querySelector('.inum').textContent=fa(i+1);c.querySelector('span').textContent='آیتم '+fa(i+1)})}
+function gIt(){return Array.from(document.querySelectorAll('.icard')).map(function(c){return{code:c.querySelector('.jc').value,desc:c.querySelector('.jd').value,qty:Math.max(0,parseFloat(c.querySelector('.jq').value)||0),unit:c.querySelector('.ju').value,price:Math.max(0,parseFloat(c.querySelector('.jp').value)||0),disc:Math.max(0,parseFloat(c.querySelector('.ji').value)||0)}})}
+
+function upLogo(e){var f=e.target.files[0];if(!f)return;document.getElementById('lNm').textContent=f.name;document.getElementById('lRm').style.display='inline-flex';var r=new FileReader();r.onload=function(ev){logo=ev.target.result;var t=document.getElementById('lTh');t.src=logo;t.style.display='block';render()};r.readAsDataURL(f)}
+function rmLogo(){logo=null;document.getElementById('lI').value='';document.getElementById('lNm').textContent='فایلی انتخاب نشده';document.getElementById('lRm').style.display='none';document.getElementById('lTh').style.display='none';render()}
+function upStamp(e){var f=e.target.files[0];if(!f)return;document.getElementById('sNm2').textContent=f.name;document.getElementById('sRm2').style.display='inline-flex';var r=new FileReader();r.onload=function(ev){stamp=ev.target.result;var t=document.getElementById('sTh2');t.src=stamp;t.style.display='block';render()};r.readAsDataURL(f)}
+function rmStamp(){stamp=null;document.getElementById('sI').value='';document.getElementById('sNm2').textContent='فایلی انتخاب نشده';document.getElementById('sRm2').style.display='none';document.getElementById('sTh2').style.display='none';render()}
+
+function gVAT(){var v=parseFloat(document.getElementById('fVAT').value);if(isNaN(v))return 10;return Math.min(100,Math.max(0,v))}
+function gD(){
+var y=document.getElementById('fYear').value;
+var m=document.getElementById('fMonth').value.padStart(2,'0');
+var dStr=document.getElementById('fDay').value.padStart(2,'0');
+var finalDate=y+'/'+m+'/'+dStr;
+
+return{num:document.getElementById('fNum').value,date:finalDate,cur:cur,vatOn:vatOn,vatP:gVAT(),off:isOff,pre:isPre,col:iColor,logo:logo,stamp:stamp,s:{n:document.getElementById('sN').value,e:document.getElementById('sE').value,r:document.getElementById('sR').value,a:document.getElementById('sA').value,p:document.getElementById('sP').value,c:document.getElementById('sCi').value,po:document.getElementById('sPo').value,na:document.getElementById('sNa').value,ph:document.getElementById('sPh').value},b:{n:document.getElementById('bN').value,e:document.getElementById('bE').value,r:document.getElementById('bR').value,a:document.getElementById('bA').value,p:document.getElementById('bP').value,c:document.getElementById('bCi').value,po:document.getElementById('bPo').value,na:document.getElementById('bNa').value,ph:document.getElementById('bPh').value},ca:document.getElementById('fCa').checked,nc:document.getElementById('fNc').checked,no:document.getElementById('fNo').value,items:gIt()}
+}
+
+/* ===== ساخت قالب‌های فاکتور ======== */
+function bldInv(d){return d.off?bldOff(d):bldSmp(d)}
+
+function bldOff(d){
+var C=d.col,cr=d.cur,its=d.items,vp=d.vatOn?d.vatP:0,pf=d.pre?'پیش ':'';
+var sT=0,sD=0,sA=0,sX=0,sG=0;
+its.forEach(function(it){var t=it.qty*it.price,a=t-it.disc,x=a*vp/100,g=a+x;sT+=t;sD+=it.disc;sA+=a;sX+=x;sG+=g});
+var h='<div style="padding:12px 16px;font-size:10.5px;line-height:1.6;color:#111">';
+h+='<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid '+C+';padding-bottom:7px;margin-bottom:8px;gap:8px">';
+h+='<div style="flex-shrink:0">';if(d.logo)h+='<img src="'+d.logo+'" style="height:40px;max-width:110px;object-fit:contain">';h+='</div>';
+h+='<div style="font-size:14px;font-weight:800;color:'+C+';text-align:center;flex:1">'+pf+'صورتحساب فروش کالا و خدمات</div>';
+h+='<div style="text-align:left;font-size:10.5px;flex-shrink:0"><div>شماره سریال : '+(d.num?fa(d.num):'ـــ')+'</div><div>تاریخ : '+(d.date?fa(d.date):'ـــ')+'</div></div></div>';
+h+=bldPty('مشخصات فروشنده',d.s,C);
+h+=bldPty('مشخصات خریدار',d.b,C);
+h+='<div style="border:1px solid '+C+';margin-top:5px;overflow:hidden"><div style="background:'+C+';color:#fff;padding:2px 8px;font-weight:700;font-size:11px">مشخصات کالا یا خدمات</div>';
+h+='<table style="width:100%;border-collapse:collapse;font-size:9px"><thead><tr style="background:'+C+'15">';
+var ths=['ردیف|24px','کد کالا|48px','شرح کالا یا خدمات|auto','تعداد|38px','واحد|34px','مبلغ واحد ('+cr+')|62px','مبلغ کل ('+cr+')|62px','تخفیف ('+cr+')|54px','پس از تخفیف ('+cr+')|66px','مالیات و عوارض ('+cr+')|58px','جمع کل + مالیات ('+cr+')|66px'];
+ths.forEach(function(t){var p=t.split('|');h+='<th style="border:1px solid #ccc;padding:3px 2px;'+(p[1]!=='auto'?'width:'+p[1]+';':'')+'white-space:nowrap">'+p[0]+'</th>'});
+h+='</tr></thead><tbody>';
+its.forEach(function(it,i){var t=it.qty*it.price,a=t-it.disc,x=a*vp/100,g=a+x;
+h+='<tr><td style="border:1px solid #ddd;padding:3px 2px;text-align:center">'+fa(i+1)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:center">'+fa(it.code)+'</td><td style="border:1px solid #ddd;padding:3px 3px">'+it.desc+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:center">'+fa(it.qty)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:center">'+it.unit+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:left">'+fm(it.price)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:left">'+fm(t)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:left">'+fm(it.disc)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:left">'+fm(a)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:left">'+fm(x)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:left;font-weight:600">'+fm(g)+'</td></tr>'});
+for(var i=its.length;i<7;i++){h+='<tr><td style="border:1px solid #ddd;padding:3px 2px;text-align:center">'+fa(i+1)+'</td>';for(var j=0;j<10;j++)h+='<td style="border:1px solid #ddd;padding:3px 2px">&nbsp;</td>';h+='</tr>'}
+h+='</tbody><tfoot><tr style="background:'+C+'10;font-weight:700;font-size:9.5px">';
+h+='<td colspan="6" style="border:1px solid #ccc;padding:4px 3px">جمع کل :</td>';
+h+='<td style="border:1px solid #ccc;padding:4px 2px;text-align:left">'+fm(sT)+'</td>';
+h+='<td style="border:1px solid #ccc;padding:4px 2px;text-align:left">'+fm(sD)+'</td>';
+h+='<td style="border:1px solid #ccc;padding:4px 2px;text-align:left">'+fm(sA)+'</td>';
+h+='<td style="border:1px solid #ccc;padding:4px 2px;text-align:left">'+fm(sX)+'</td>';
+h+='<td style="border:1px solid #ccc;padding:4px 2px;text-align:left;color:'+C+'">'+fm(sG)+'</td></tr></tfoot></table></div>';
+h+='<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:6px;gap:8px">';
+h+='<div style="flex:1;font-size:10px"><div>شرایط و نحوه فروش : '+(d.ca?'&#9745;':'&#9744;')+' نقدی &nbsp; '+(d.nc?'&#9745;':'&#9744;')+' غیرنقدی</div><div>توضیحات : '+(d.no||'ـــ')+'</div></div>';
+h+='<div style="text-align:center;font-weight:800;font-size:12px;color:'+C+';white-space:nowrap">قابل پرداخت : '+fm(sG)+' '+cr+'</div></div>';
+/* بخش اصلاح شده مهر و امضا با تراز دقیق */
+h+='<div style="display:flex;justify-content:space-between;margin-top:18px;font-size:10px">';
+h+='<div style="text-align:center;width:44%;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;">';
+if(d.stamp)h+='<img src="'+d.stamp+'" style="height:55px;max-width:85px;object-fit:contain;margin-bottom:4px;">';
+h+='<div style="border-top:1px solid #999;padding-top:3px;width:100%;">مهر و امضای فروشنده</div></div>';
+h+='<div style="text-align:center;width:44%;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;">';
+h+='<div style="border-top:1px solid #999;padding-top:3px;width:100%;">مهر و امضای خریدار</div></div></div>';
+return h+'</div>'}
+
+function bldPty(title,p,C){
+var h='<div style="border:1px solid '+C+';margin-top:5px;overflow:hidden"><div style="background:'+C+';color:#fff;padding:2px 8px;font-weight:700;font-size:10.5px">'+title+'</div>';
+h+='<table style="width:100%;border-collapse:collapse;font-size:9.5px">';
+h+='<tr><td style="border:1px solid #ddd;padding:2px 5px;width:30%">نام شخص حقیقی / حقوقی : <b>'+p.n+'</b></td><td style="border:1px solid #ddd;padding:2px 5px;width:25%">شماره اقتصادی : '+p.e+'</td><td style="border:1px solid #ddd;padding:2px 5px">شماره ثبت : '+p.r+'</td></tr>';
+h+='<tr><td style="border:1px solid #ddd;padding:2px 5px" colspan="2">نشانی کامل : '+p.a+'</td><td style="border:1px solid #ddd;padding:2px 5px">کد پستی ده رقمی : '+p.po+'</td></tr>';
+h+='<tr><td style="border:1px solid #ddd;padding:2px 5px">استان : '+p.p+'</td><td style="border:1px solid #ddd;padding:2px 5px">شهرستان : '+p.c+'</td><td style="border:1px solid #ddd;padding:2px 5px">شناسه ملی : '+p.na+'</td></tr>';
+h+='<tr><td style="border:1px solid #ddd;padding:2px 5px" colspan="3">تلفن / فکس : '+p.ph+'</td></tr>';
+h+='</table></div>';return h}
+
+function bldSmp(d){
+var C=d.col,cr=d.cur,its=d.items,vp=d.vatOn?d.vatP:0,pf=d.pre?'پیش ':'';
+var sT=0,sD=0,sA=0,sX=0,sG=0;
+its.forEach(function(it){var t=it.qty*it.price,a=t-it.disc,x=a*vp/100,g=a+x;sT+=t;sD+=it.disc;sA+=a;sX+=x;sG+=g});
+var h='<div style="padding:18px 22px;font-size:11.5px;line-height:1.7;color:#111">';
+h+='<div style="display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid '+C+';padding-bottom:12px;margin-bottom:14px;gap:10px">';
+h+='<div style="flex-shrink:0">';if(d.logo)h+='<img src="'+d.logo+'" style="height:50px;max-width:130px;object-fit:contain">';h+='</div>';
+h+='<div style="text-align:center;flex:1"><div style="font-size:17px;font-weight:900;color:'+C+';margin-bottom:4px">'+pf+'فاکتور فروش</div><div style="font-size:10.5px;color:#555">شماره : <b style="color:#111">'+(d.num?fa(d.num):'ـــ')+'</b> &nbsp;|&nbsp; تاریخ : <b style="color:#111">'+(d.date?fa(d.date):'ـــ')+'</b></div></div>';
+h+='<div style="flex-shrink:0;width:50px"></div></div>';
+if(d.s.n||d.b.n){
+h+='<div style="display:flex;gap:14px;margin-bottom:12px">';
+if(d.s.n)h+='<div style="flex:1;background:'+C+'08;border:1px solid '+C+'30;border-radius:7px;padding:8px;font-size:10.5px"><b style="color:'+C+'">فروشنده :</b> '+d.s.n+(d.s.ph?' | تلفن: '+d.s.ph:'')+'</div>';
+if(d.b.n)h+='<div style="flex:1;background:'+C+'08;border:1px solid '+C+'30;border-radius:7px;padding:8px;font-size:10.5px"><b style="color:'+C+'">خریدار :</b> '+d.b.n+(d.b.ph?' | تلفن: '+d.b.ph:'')+'</div>';
+h+='</div>'}
+h+='<table style="width:100%;border-collapse:collapse;font-size:10.5px;margin-bottom:12px"><thead><tr style="background:'+C+';color:#fff">';
+['ردیف|32px','شرح کالا یا خدمات|auto','تعداد|52px','واحد|44px','مبلغ واحد ('+cr+')|82px','تخفیف ('+cr+')|72px','جمع ('+cr+')|82px'].forEach(function(t){var p=t.split('|');h+='<th style="padding:7px 5px;'+(p[1]!=='auto'?'width:'+p[1]+';':'')+'">'+p[0]+'</th>'});
+h+='</tr></thead><tbody>';
+its.forEach(function(it,i){var t=it.qty*it.price,a=t-it.disc,x=a*vp/100,g=a+x;var bg=i%2===0?'#fff':'#f9fafb';
+h+='<tr style="background:'+bg+'"><td style="padding:6px 5px;text-align:center;border-bottom:1px solid #eee">'+fa(i+1)+'</td><td style="padding:6px 5px;border-bottom:1px solid #eee">'+it.desc+'</td><td style="padding:6px 5px;text-align:center;border-bottom:1px solid #eee">'+fa(it.qty)+'</td><td style="padding:6px 5px;text-align:center;border-bottom:1px solid #eee">'+it.unit+'</td><td style="padding:6px 5px;text-align:left;border-bottom:1px solid #eee">'+fm(it.price)+'</td><td style="padding:6px 5px;text-align:left;border-bottom:1px solid #eee">'+fm(it.disc)+'</td><td style="padding:6px 5px;text-align:left;font-weight:600;border-bottom:1px solid #eee">'+fm(g)+'</td></tr>'});
+if(its.length===0)h+='<tr><td colspan="7" style="padding:18px;text-align:center;color:#aaa;border-bottom:1px solid #eee">آیتمی ثبت نشده</td></tr>';
+h+='</tbody></table>';
+h+='<div style="width:260px;margin-right:auto;background:#f9fafb;border:1px solid #e5e7eb;border-radius:9px;overflow:hidden;font-size:10.5px">';
+h+='<div style="display:flex;justify-content:space-between;padding:6px 12px;border-bottom:1px solid #e5e7eb"><span>جمع کل :</span><span>'+fm(sT)+' '+cr+'</span></div>';
+h+='<div style="display:flex;justify-content:space-between;padding:6px 12px;border-bottom:1px solid #e5e7eb"><span>جمع تخفیفات :</span><span>'+fm(sD)+' '+cr+'</span></div>';
+h+='<div style="display:flex;justify-content:space-between;padding:6px 12px;border-bottom:1px solid #e5e7eb"><span>جمع پس از تخفیف :</span><span>'+fm(sA)+' '+cr+'</span></div>';
+if(d.vatOn)h+='<div style="display:flex;justify-content:space-between;padding:6px 12px;border-bottom:1px solid #e5e7eb"><span>ارزش افزوده ('+fa(d.vatP)+'%) :</span><span>'+fm(sX)+' '+cr+'</span></div>';
+h+='<div style="display:flex;justify-content:space-between;padding:9px 12px;background:'+C+';color:#fff;font-weight:800;font-size:12.5px"><span>قابل پرداخت :</span><span>'+fm(sG)+' '+cr+'</span></div></div>';
+if(d.no||d.ca||d.nc){h+='<div style="margin-top:12px;font-size:10.5px;color:#555">';if(d.ca||d.nc)h+='شرایط فروش : '+(d.ca?'نقدی':'')+(d.ca&&d.nc?' - ':'')+(d.nc?'غیرنقدی':'')+' &nbsp;|&nbsp; ';h+='توضیحات : '+(d.no||'ـــ')+'</div>'}
+/* بخش اصلاح شده مهر و امضا با تراز دقیق */
+h+='<div style="display:flex;justify-content:space-between;margin-top:24px;font-size:10.5px">';
+h+='<div style="text-align:center;width:44%;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;">';
+if(d.stamp)h+='<img src="'+d.stamp+'" style="height:55px;max-width:85px;object-fit:contain;margin-bottom:4px;">';
+h+='<div style="border-top:1px solid #bbb;padding-top:5px;color:#777;width:100%;">مهر و امضای فروشنده</div></div>';
+h+='<div style="text-align:center;width:44%;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;">';
+h+='<div style="border-top:1px solid #bbb;padding-top:5px;color:#777;width:100%;">مهر و امضای خریدار</div></div></div>';
+return h+'</div>'}
+
+function render(){clearTimeout(renderTO);renderTO=setTimeout(function(){document.getElementById('invprev').innerHTML=bldInv(gD())},60)}
+
+function scPr(){
+var s=document.getElementById('PSc'),inv=document.getElementById('invprev');
+if(!s||!inv)return;
+var w=s.clientWidth-20;
+if(w<=0)return;
+var sc=Math.min(w/800,1);
+inv.style.transform='scale('+sc+')';
+inv.style.transformOrigin='top right';
+}
+
+function printInv(){
+var content=document.getElementById('invprev').innerHTML;
+var w=window.open('','','width=900,height=700');
+if(!w){toast('مرورگر پنجره چاپ را مسدود کرد. لطفاً Popup Blocker را غیرفعال کنید','e');return}
+w.document.write('<!DOCTYPE html><html dir="rtl"><head><meta charset="UTF-8"><title>چاپ مستقیم فاکتور</title><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Vazirmatn,sans-serif;padding:10px;}@media print{body{padding:0;margin:0}@page{margin:12mm 10mm 12mm 10mm}}</style></head><body><div style="width:100%;max-width:800px;margin:0 auto;font-size:11px;line-height:1.6;color:#111">'+content+'</div><script>setTimeout(function(){window.print();window.close()},600)<\/script></body></html>');
+w.document.close()}
+
+/* تابع اختصاصی دانلود عکس با کیفیت بالا */
+async function dlImg(){
+document.getElementById('LO').style.display='flex';
+var tmp=document.createElement('div');
+tmp.style.cssText='position:fixed;left:-9999px;top:0;width:800px;background:#fff;z-index:-1;pointer-events:none';
+tmp.innerHTML=bldInv(gD());
+document.body.appendChild(tmp);
+
+var proms=[];
+tmp.querySelectorAll('img').forEach(function(img){
+if(img.src && !img.complete){
+proms.push(new Promise(function(res){img.onload=res;img.onerror=res}));
+}
+});
+await Promise.all(proms);
+await new Promise(function(r){setTimeout(r,500)});
+
+try {
+var canvas=await html2canvas(tmp,{scale:2,backgroundColor:'#ffffff',useCORS:true,allowTaint:true,logging:false});
+var link=document.createElement('a');
+link.download='factor-1001.png';
+link.href=canvas.toDataURL('image/png');
+link.click();
+toast('فایل عکس فاکتور با موفقیت دانلود شد','s');
+} catch(err) {
+console.error(err);
+toast('خطا در تولید فایل عکس','e');
+} finally {
+document.body.removeChild(tmp);
+document.getElementById('LO').style.display='none';
+}
+}
+
+async function dlPDF(){
+await document.fonts.ready;
+document.getElementById('LO').style.display='flex';
+
+var tmp=document.createElement('div');
+tmp.style.cssText='position:fixed;left:-9999px;top:0;width:800px;background:#fff;z-index:-1;pointer-events:none';
+tmp.innerHTML=bldInv(gD());
+document.body.appendChild(tmp);
+
+var imgs=tmp.querySelectorAll('img');
+var proms=[];
+imgs.forEach(function(img){
+if(img.src && !img.complete){
+proms.push(new Promise(function(res){img.onload=res;img.onerror=res}));
+}
+});
+await Promise.all(proms);
+await new Promise(function(r){setTimeout(r,800)});
+
+try{
+var canvas=await html2canvas(tmp,{
+scale:2,
+backgroundColor:'#ffffff',
+useCORS:true,
+allowTaint:true,
+logging:false,
+width:800,
+windowWidth:800
+});
+
+if(!canvas || canvas.width===0 || canvas.height===0){
+toast('خطا: ساختار فاکتور برای خروجی خالی است','e');
+return;
+}
+
+var jsPDF=window.jspdf.jsPDF;
+var pdf=new jsPDF('p','mm','a4');
+var pw=210; 
+var ph=297; 
+var margin=10; 
+var mw=pw-(margin*2);
+var mh=ph-(margin*2);
+
+var imgWidth=canvas.width;
+var imgHeight=canvas.height;
+var pxPageHeight=(mh*imgWidth)/mw;
+
+var sY=0;
+while(sY<imgHeight){
+if(sY>0) pdf.addPage();
+var sH=Math.min(pxPageHeight,imgHeight-sY);
+
+var sliceCanvas=document.createElement('canvas');
+sliceCanvas.width=imgWidth;
+sliceCanvas.height=sH;
+var ctx=sliceCanvas.getContext('2d');
+ctx.drawImage(canvas,0,sY,imgWidth,sH,0,0,imgWidth,sH);
+
+var sliceData=sliceCanvas.toDataURL('image/png',1.0);
+var slicePdfH=(sH*mw)/imgWidth;
+
+pdf.addImage(sliceData,'PNG',margin,margin,mw,slicePdfH);
+sY+=pxPageHeight;
+}
+
+pdf.save('factor-1001.pdf');
+toast('فایل PDF با حاشیه استاندارد دانلود شد','s');
+
+}catch(err){
+console.error('PDF Error:',err);
+toast('خطا در تولید فایل PDF: '+err.message,'e');
+}finally{
+document.body.removeChild(tmp);
+document.getElementById('LO').style.display='none';
+}
+}
+
+function toast(m,t){var d=document.createElement('div');d.className='tt tt-'+t;d.innerHTML='<i class="fas fa-'+(t==='s'?'check-circle':'exclamation-triangle')+'"></i> '+m;document.getElementById('TC').appendChild(d);requestAnimationFrame(function(){d.classList.add('shw')});setTimeout(function(){d.classList.remove('shw');setTimeout(function(){d.remove()},300)},3000)}
+
+function onRS(){
+var g=document.getElementById('MG');
+var p=document.getElementById('PP');
+var btnText=document.getElementById('prevBtnText');
+var btnIcon=document.getElementById('prevBtnIcon');
+var mobBtn=document.getElementById('mobPrevBtn');
+if(!g)return;
+
+if(!isPreviewVisible){
+g.style.gridTemplateColumns='1fr';
+if(p) p.style.display='none';
+if(btnText) btnText.textContent='نمایش پیش‌نمایش';
+if(btnIcon) btnIcon.className='fas fa-eye';
+if(mobBtn) mobBtn.style.display='none';
+}else{
+if(window.innerWidth<1023){
+g.style.gridTemplateColumns='1fr';
+if(p) {
+p.style.display='block';
+p.style.position='static';
+p.style.height='auto';
+}
+if(mobBtn) mobBtn.style.display='inline-flex';
+}else{
+g.style.gridTemplateColumns='1fr 420px';
+if(p) {
+p.style.display='block';
+p.style.position='sticky';
+p.style.top='70px';
+p.style.height='calc(100vh - 90px)';
+}
+if(mobBtn) mobBtn.style.display='none';
+}
+if(btnText) btnText.textContent='مخفی‌سازی پیش‌نمایش';
+if(btnIcon) btnIcon.className='fas fa-eye-slash';
+}
+scPr();
+}
+
+window.addEventListener('load',function(){initCol();initDt();addItem();onRS();document.getElementById('invprev').innerHTML=bldInv(gD())});
+window.addEventListener('resize',onRS);
+</script>
+</body>
+</html>
