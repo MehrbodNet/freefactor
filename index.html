@@ -2,532 +2,846 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سیستم مدیریت و صدور فاکتور هزار و یک | چاپ مستقیم فاکتور آنلاین</title>
-<meta name="description" content="سیستم مدیریت و صدور فاکتور هزار و یک - ابزار آنلاین و حرفه‌ای برای ساخت، ویرایش و صدور فاکتور رسمی مالیاتی و فاکتور ساده فروش به همراه امکان چاپ مستقیم و دانلود فایل PDF سریع.">
-<meta name="keywords" content="سیستم صدور فاکتور, فاکتور آنلاین, فاکتور رسمی مالیاتی, ساخت فاکتور هزار و یک, صدور پیش فاکتور, فاکتور فروش کالا, نرم افزار فاکتور رایگان, چاپ مستقیم فاکتور, دانلود فاکتور PDF, فاکتور شیک">
-<meta name="robots" content="index, follow">
-<meta name="author" content="هزار و یک">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="گروه فناوری اطلاعات هزار و یک - ارائه خدمات تلفن سازمانی، طراحی سایت، نرم‌افزار حسابداری، شبکه، امنیت، خدمات اداری و کافی‌نت و ثبت شرکت و برند در میبد">
+<meta name="theme-color" content="#dc2626">
+<title>گروه فناوری اطلاعات هزار و یک</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23fff'/%3E%3Crect x='15' y='22' width='9' height='56' rx='4.5' fill='%23dc2626'/%3E%3Crect x='76' y='22' width='9' height='56' rx='4.5' fill='%23dc2626'/%3E%3Cpath d='M29 50C29 34 40 28 50 50C60 72 71 66 71 50C71 34 60 28 50 50C40 72 29 66 29 50Z' fill='%23dc2626'/%3E%3C/svg%3E">
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="سیستم مدیریت و صدور فاکتور هزار و یک | چاپ مستقیم و PDF">
-<meta property="og:description" content="فاکتورهای رسمی و ساده خود را به صورت آنلاین مدیریت کنید، پرینت بگیرید یا به صورت PDF دانلود کنید.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "سیستم مدیریت و صدور فاکتور هزار و یک",
-  "description": "برنامه تحت وب صدور و چاپ مستقیم فاکتورهای رسمی مالیاتی و ساده با خروجی استاندارد PDF با حاشیه دقیق.",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "All"
-}
+<script>
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark');
+  }
 </script>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{v:['Vazirmatn','sans-serif']}}}}</script>
+<!-- آیکون‌ها: مسیر صحیح وب‌کامپوننت آیکونیفای -->
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-[data-theme="dark"]{--bg:#0c0f1a;--card:#151929;--inp:#0c0f1a;--bdr:#1e2235;--bdrh:#2a3048;--txt:#e2e8f0;--mut:#8b92a5;--dim:#6b7280;--sb:#2a2f45;--hbg:rgba(12,15,26,.92);--tbg:#2a2f45;--hvr:#1a1f33;--bsc:#1a1f33}
-[data-theme="light"]{--bg:#eef0f4;--card:#fff;--inp:#f8fafc;--bdr:#dde1e8;--bdrh:#c5cad4;--txt:#1e293b;--mut:#64748b;--dim:#94a3b8;--sb:#dde1e8;--hbg:rgba(255,255,255,.92);--tbg:#d1d5db;--hvr:#f1f5f9;--bsc:#f1f5f9}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;transition:background .3s,color .3s}
-::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--sb)}::-webkit-scrollbar-thumb{background:var(--bdrh);border-radius:3px}
-.sc{background:var(--card);border:1px solid var(--bdr);border-radius:14px;overflow:hidden;transition:border-color .3s,background .3s}
-.sc:hover{border-color:var(--bdrh)}
-.sh{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;cursor:pointer;user-select:none;transition:background .2s}
-.sh:hover{background:var(--hvr)}
-.sh span{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px}
-.sh .ar{transition:transform .3s;font-size:11px;color:var(--dim)}
-.sh .ar.ro{transform:rotate(-90deg)}
-.sb{max-height:2000px;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 16px 16px}
-.sb.cl{max-height:0;padding-top:0;padding-bottom:0}
-.fd{display:flex;flex-direction:column;gap:3px}
-.fd label{font-size:10.5px;color:var(--mut);font-weight:500}
-.fd input,.fd textarea{background:var(--inp);border:1px solid var(--bdr);border-radius:9px;padding:7px 11px;color:var(--txt);font-size:13px;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
-.fd input:focus,.fd textarea:focus{border-color:#e5a00d;box-shadow:0 0 0 3px rgba(229,160,13,.12)}
-.fd input[type="number"]{direction:ltr;text-align:right}
-.fd textarea{resize:vertical;min-height:50px}
-.sel-date{background:var(--inp);border:1px solid var(--bdr);border-radius:9px;padding:7px;color:var(--txt);font-size:12.5px;outline:none;cursor:pointer;font-family:inherit;flex:1;transition:all .2s;text-align:center;}
-.sel-date:hover{border-color:var(--bdrh);}
-.sel-date:focus{border-color:#e5a00d;box-shadow:0 0 0 3px rgba(229,160,13,.12);}
-.co{width:26px;height:26px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:border-color .2s,transform .2s;flex-shrink:0}
-.co:hover{transform:scale(1.15)}.co.ac{border-color:var(--txt);transform:scale(1.15)}
-.ccw{width:26px;height:26px;border-radius:50%;border:2px dashed var(--bdrh);position:relative;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .2s,transform .2s;overflow:hidden}
-.ccw:hover{transform:scale(1.15)}.ccw.ac{border-style:solid;border-color:var(--txt)}
-.ccw input{position:absolute;inset:-5px;width:40px;height:40px;opacity:0;cursor:pointer}
-.rc{display:flex;align-items:center;gap:6px;padding:7px 13px;border-radius:9px;border:1px solid var(--bdr);cursor:pointer;transition:all .2s;font-size:12.5px;flex-shrink:0;user-select:none}
-.rc:hover{border-color:var(--bdrh)}.rc.ac{border-color:#e5a00d;background:rgba(229,160,13,.1);color:#e5a00d;font-weight:600}
-.rc input{display:none}
-.icard{background:var(--inp);border:1px solid var(--bdr);border-radius:12px;padding:12px;transition:border-color .2s}
-.icard:hover{border-color:var(--bdrh)}
-.inum{background:linear-gradient(135deg,#e5a00d,#d97706);color:#000;font-size:10px;font-weight:700;width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.bp{background:linear-gradient(135deg,#e5a00d,#d97706);color:#000;font-weight:700;border:none;border-radius:10px;padding:9px 18px;cursor:pointer;font-family:inherit;font-size:12.5px;transition:all .2s;display:flex;align-items:center;gap:7px}
-.bp:hover{transform:translateY(-1px);box-shadow:0 4px 15px rgba(229,160,13,.3)}.bp:active{transform:translateY(0)}
-.bsec{background:var(--bsc);color:var(--txt);font-weight:600;border:1px solid var(--bdr);border-radius:10px;padding:9px 18px;cursor:pointer;font-family:inherit;font-size:12.5px;transition:all .2s;display:flex;align-items:center;gap:7px}
-.bsec:hover{border-color:var(--bdrh);background:var(--hvr)}
-.sm{padding:5px 12px;font-size:11px;border-radius:8px}
-.bd{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.2);border-radius:7px;padding:3px 9px;cursor:pointer;font-size:11px;font-family:inherit;transition:all .2s}
-.bd:hover{background:rgba(239,68,68,.2)}
-.ur{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-.ur .fn{font-size:10px;color:var(--mut);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.thmb{width:44px;height:44px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr);margin-top:5px}
-.tc{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
-.tt{padding:11px 18px;border-radius:11px;font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:8px;opacity:0;transform:translateY(-10px);transition:all .3s;white-space:nowrap;pointer-events:auto}
-.tt.shw{opacity:1;transform:translateY(0)}
-.tt-s{background:#065f46;color:#6ee7b7;border:1px solid #10b981}
-.tt-e{background:#7f1d1d;color:#fca5a5;border:1px solid #ef4444}
-.lo{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
-.spn{width:36px;height:36px;border:4px solid rgba(229,160,13,.2);border-top-color:#e5a00d;border-radius:50%;animation:spi .8s linear infinite}
-@keyframes spi{to{transform:rotate(360deg)}}
-.psc{overflow:auto;max-height:calc(100vh - 100px);border-radius:10px}
-#invprev{width:800px;min-height:400px;background:#fff;direction:rtl;font-family:'Vazirmatn',sans-serif;margin:0 auto;color:#111;transform-origin:top right}
-.tbtn{position:fixed;bottom:22px;left:22px;z-index:50;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--bdr);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px;color:#e5a00d;transition:all .3s;box-shadow:0 4px 18px rgba(0,0,0,.3)}
-.tbtn:hover{transform:scale(1.1);box-shadow:0 6px 22px rgba(229,160,13,.25)}
-.tg{width:38px;height:20px;border-radius:10px;background:var(--tbg);position:relative;transition:background .3s;flex-shrink:0;cursor:pointer}
-.tg.on{background:#e5a00d}
-.tk{width:16px;height:16px;border-radius:50%;background:#fff;position:absolute;top:2px;right:2px;transition:right .3s}
-.tg.on .tk{right:20px}
-@media(max-width:1023px){.psc{max-height:none}}
-@media(prefers-reduced-motion:reduce){*{animation-duration:0s!important;transition-duration:0s!important}}
+:root {
+  --brand: #dc2626;
+  --brand-dark: #b91c1c;
+  --brand-light: #f59e0b;
+  --brand-glow: rgba(220, 38, 38, 0.15);
+}
+
+* { font-family: 'Vazirmatn', sans-serif; box-sizing: border-box; }
+body { transition: background .35s ease, color .35s ease; }
+
+/* ===== کارت‌های خدمات ===== */
+.service-card {
+  position: relative;
+  transition: all .4s cubic-bezier(.22,1,.36,1);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 40%, var(--brand-glow) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity .4s ease;
+  pointer-events: none;
+}
+.service-card:hover::before { opacity: 1; }
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(220, 38, 38, .12), 0 8px 16px -8px rgba(0,0,0,.06);
+}
+.service-card:hover .service-icon {
+  background: rgba(220,38,38,.1) !important;
+  color: var(--brand) !important;
+  transform: scale(1.05);
+}
+.service-card:hover .service-arrow { transform: translateX(-4px); opacity: 1; }
+.service-icon { transition: all .35s cubic-bezier(.22,1,.36,1); }
+.service-arrow { transition: all .35s ease; opacity: .25; }
+
+/* ===== دکمه‌ها ===== */
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  transition: all .3s cubic-bezier(.22,1,.36,1);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.15), transparent);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.btn-primary:hover::after { opacity: 1; }
+.btn-primary:hover {
+  box-shadow: 0 8px 24px -6px rgba(220,38,38,.45);
+  transform: translateY(-1px);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-outline {
+  border: 1.5px solid var(--brand);
+  color: var(--brand);
+  transition: all .3s ease;
+}
+.btn-outline:hover {
+  background: rgba(220,38,38,.04);
+  box-shadow: 0 4px 16px -6px rgba(220,38,38,.15);
+}
+
+.social-btn { transition: all .3s cubic-bezier(.22,1,.36,1); }
+.social-btn:hover {
+  background: rgba(220,38,38,.1) !important;
+  color: var(--brand) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px -4px rgba(220,38,38,.2);
+}
+
+/* ===== دسترس‌پذیری ===== */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* ===== انیمیشن‌ها ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+}
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: .08s; }
+.reveal-d2 { transition-delay: .16s; }
+.reveal-d3 { transition-delay: .24s; }
+.reveal-d4 { transition-delay: .32s; }
+.reveal-d5 { transition-delay: .4s; }
+
+.mobile-menu { transform: translateX(100%); transition: transform .35s cubic-bezier(.22,1,.36,1); }
+.mobile-menu.is-open { transform: translateX(0); }
+
+@keyframes pulse-ring {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220,38,38,.4); }
+  50% { box-shadow: 0 0 0 8px rgba(220,38,38,0); }
+}
+.pulse-dot { animation: pulse-ring 2s infinite; }
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(0.5deg); }
+}
+.float-anim { animation: float-y 5s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.split-border { border-right: 4px solid var(--brand); }
+@media (max-width: 768px) { .split-border { border-right: none; border-top: 4px solid var(--brand); } }
+
+.check-icon {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: rgba(220,38,38,.08);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background .2s;
+}
+
+.nav-link.is-active { color: var(--brand) !important; background: rgba(220,38,38,.08); }
+
+/* ===== تاست ===== */
+.toast-enter { animation: toast-in .45s cubic-bezier(.22,1,.36,1); }
+@keyframes toast-in { from { opacity: 0; transform: translateY(16px) scale(.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.toast-exit { animation: toast-out .3s ease-in; }
+@keyframes toast-out { to { opacity: 0; transform: translateY(-8px) scale(.95); } }
+
+/* ===== بلاب‌های دکوراتیو ===== */
+.deco-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .35;
+  pointer-events: none;
+  z-index: 0;
+}
+.dark .deco-blob { opacity: .15; }
+
+/* ===== فرم ===== */
+.form-input {
+  transition: all .25s ease;
+  border: 1.5px solid transparent;
+}
+.form-input:focus {
+  border-color: var(--brand) !important;
+  box-shadow: 0 0 0 3px rgba(220,38,38,.08);
+  background: #fff !important;
+}
+.dark .form-input:focus {
+  background: #1f2937 !important;
+}
+
+/* ===== فوتر ===== */
+.footer-gradient {
+  background: linear-gradient(180deg, #111827 0%, #0a0f1a 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== اسکرول‌بار سفارشی ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(220,38,38,.25); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(220,38,38,.4); }
 </style>
 </head>
-<body data-theme="light">
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-gray-100 overflow-x-hidden">
 
-<div class="tc" id="TC"></div>
-<div id="LO" class="lo" style="display:none"><div style="background:var(--card);border-radius:14px;padding:26px 36px;display:flex;flex-direction:column;align-items:center;gap:12px;border:1px solid var(--bdr)"><div class="spn"></div><span style="font-size:13px;font-weight:600">در حال پردازش خروجی...</span></div></div>
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:right-2 focus:z-[60] focus:bg-white focus:text-red-600 focus:px-3 focus:py-2 focus:rounded-lg shadow-lg">رفتن به محتوای اصلی</a>
 
-<button class="tbtn" onclick="togTheme()" title="تغییر تم" aria-label="تغییر تم"><i class="fas fa-moon" id="TIC"></i></button>
-
-<header style="position:sticky;top:0;z-index:40;background:var(--hbg);backdrop-filter:blur(16px);border-bottom:1px solid var(--bdr);transition:background .3s">
-<div style="max-width:1600px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-<div style="display:flex;align-items:center;gap:10px">
-<div style="width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#e5a00d,#d97706);display:flex;align-items:center;justify-content:center"><i class="fas fa-file-invoice" style="color:#000;font-size:16px"></i></div>
-<div><h1 style="font-size:15px;font-weight:800">سیستم مدیریت و صدور فاکتور هزار و یک</h1><p style="font-size:10px;color:var(--mut)">ساخت فاکتور رسمی، چاپ مستقیم فاکتور آنلاین و دانلود فایل PDF و عکس</p></div>
-</div>
-<div style="display:flex;gap:6px;flex-wrap:wrap">
-<button class="bsec sm" onclick="togPreview()" type="button"><i class="fas fa-eye-slash" id="prevBtnIcon"></i> <span id="prevBtnText">مخفی‌سازی پیش‌نمایش</span></button>
-<button class="bsec sm" onclick="printInv()" type="button"><i class="fas fa-print"></i> چاپ مستقیم</button>
-<button class="bsec sm" onclick="document.getElementById('PP').scrollIntoView({behavior:'smooth'})" type="button" id="mobPrevBtn" style="display:none;"><i class="fas fa-eye"></i> پیش‌نمایش</button>
-<button class="bp sm" style="background:linear-gradient(135deg,#10b981,#059669);" onclick="dlImg()" type="button"><i class="fas fa-image"></i> دانلود عکس</button>
-<button class="bp sm" onclick="dlPDF()" type="button"><i class="fas fa-file-pdf"></i> دانلود PDF</button>
-</div>
-</div>
-</header>
-
-<main style="max-width:1600px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1fr 420px;gap:16px" id="MG">
-
-<div style="display:flex;flex-direction:column;gap:12px">
-
-<div class="sc"><div class="sh" onclick="togSec(this)"><span><i class="fas fa-cog" style="color:#e5a00d"></i> تنظیمات اصلی فاکتور</span><i class="fas fa-chevron-down ar"></i></div>
-<div class="sb">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<div class="fd"><label>شماره فاکتور / سریال</label><input type="text" id="fNum" placeholder="مثلاً 541254" oninput="render()"></div>
-<div class="fd"><label>تاریخ فاکتور</label>
-<div style="display:flex;gap:5px;direction:rtl;">
-<select id="fDay" onchange="render()" class="sel-date" title="روز"></select>
-<select id="fMonth" onchange="render()" class="sel-date" title="ماه" style="flex:1.5;"></select>
-<select id="fYear" onchange="render()" class="sel-date" title="سال"></select>
-</div>
-</div>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
-<div class="fd"><label>درصد ارزش افزوده مالیاتی</label><div style="display:flex;align-items:center;gap:9px"><input type="number" id="fVAT" value="10" min="0" max="100" oninput="render()" style="width:70px"><div style="display:flex;align-items:center;gap:7px;cursor:pointer" onclick="togVAT()"><div class="tg on" id="vTG"><div class="tk"></div></div><span style="font-size:11px;color:var(--mut)" id="vLB">فعال</span></div></div></div>
-<div class="fd"><label>نوع فاکتور فروش</label><div style="display:flex;gap:7px"><label class="rc ac" id="tS" onclick="setTmpl(false)"><input type="radio" name="tmpl" checked> ساده</label><label class="rc" id="tO" onclick="setTmpl(true)"><input type="radio" name="tmpl"> رسمی مالیاتی</label></div></div>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
-<div class="fd"><label>واحد پول فاکتور</label><div style="display:flex;gap:7px"><label class="rc ac" id="cR" onclick="setCur('ریال')"><input type="radio" name="cur" checked> ریال</label><label class="rc" id="cT" onclick="setCur('تومان')"><input type="radio" name="cur"> تومان</label></div></div>
-<div class="fd"><label>رنگ قالب فاکتور</label><div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center" id="CP"></div></div>
-</div>
-<div style="margin-top:10px"><label class="rc" id="piL" style="display:inline-flex"><input type="checkbox" id="fPre" onchange="togPre()"><i class="fas fa-check" style="font-size:10px;color:transparent;transition:color .2s" id="piC"></i> پیش فاکتور باشد</label></div>
-</div></div>
-
-<div class="sc"><div class="sh" onclick="togSec(this)"><span><i class="fas fa-store" style="color:#10b981"></i> مشخصات فروشنده کالا و خدمات</span><i class="fas fa-chevron-down ar"></i></div>
-<div class="sb">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
-<div class="fd" style="grid-column:span 2"><label>نام شخص حقیقی / حقوقی فروشنده</label><input type="text" id="sN" oninput="render()"></div>
-<div class="fd"><label>شماره اقتصادی</label><input type="text" id="sE" oninput="render()"></div>
-<div class="fd"><label>شماره ثبت شرکت</label><input type="text" id="sR" oninput="render()"></div>
-<div class="fd" style="grid-column:span 2"><label>نشانی کامل فروشنده</label><input type="text" id="sA" oninput="render()"></div>
-<div class="fd"><label>استان</label><input type="text" id="sP" oninput="render()"></div>
-<div class="fd"><label>شهرستان</label><input type="text" id="sCi" oninput="render()"></div>
-<div class="fd"><label>کد پستی ده رقمی</label><input type="text" id="sPo" oninput="render()" maxlength="10"></div>
-<div class="fd"><label>شناسه ملی</label><input type="text" id="sNa" oninput="render()"></div>
-<div class="fd" style="grid-column:span 2"><label>تلفن / فکس</label><input type="text" id="sPh" oninput="render()"></div>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
-<div class="fd"><label>لوگوی فروشنده</label><div class="ur"><input type="file" id="lI" accept="image/*" style="display:none" onchange="upLogo(event)"><button class="bsec sm" onclick="document.getElementById('lI').click()" type="button"><i class="fas fa-upload"></i> آپلود لوگو</button><span class="fn" id="lNm">فایلی انتخاب نشده</span><button id="lRm" class="bd" style="display:none" onclick="rmLogo()" type="button"><i class="fas fa-times"></i></button></div><img id="lTh" class="thmb" style="display:none"></div>
-<div class="fd"><label>مهر و امضای فروشنده</label><div class="ur"><input type="file" id="sI" accept="image/*" style="display:none" onchange="upStamp(event)"><button class="bsec sm" onclick="document.getElementById('sI').click()" type="button"><i class="fas fa-upload"></i> آپلود مهر</button><span class="fn" id="sNm2">فایلی انتخاب نشده</span><button id="sRm2" class="bd" style="display:none" onclick="rmStamp()" type="button"><i class="fas fa-times"></i></button></div><img id="sTh2" class="thmb" style="display:none"></div>
-</div>
-</div></div>
-
-<div class="sc"><div class="sh" onclick="togSec(this)"><span><i class="fas fa-user" style="color:#3b82f6"></i> مشخصات خریدار کالا</span><i class="fas fa-chevron-down ar"></i></div>
-<div class="sb">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
-<div class="fd" style="grid-column:span 2"><label>نام شخص حقیقی / حقوقی خریدار</label><input type="text" id="bN" oninput="render()"></div>
-<div class="fd"><label>شماره اقتصادی خریدار</label><input type="text" id="bE" oninput="render()"></div>
-<div class="fd"><label>شماره ثبت خریدار</label><input type="text" id="bR" oninput="render()"></div>
-<div class="fd" style="grid-column:span 2"><label>نشانی کامل خریدار</label><input type="text" id="bA" oninput="render()"></div>
-<div class="fd"><label>استان</label><input type="text" id="bP" oninput="render()"></div>
-<div class="fd"><label>شهرستان</label><input type="text" id="bCi" oninput="render()"></div>
-<div class="fd"><label>کد پستی ده رقمی خریدار</label><input type="text" id="bPo" oninput="render()" maxlength="10"></div>
-<div class="fd"><label>شناسه ملی</label><input type="text" id="bNa" oninput="render()"></div>
-<div class="fd" style="grid-column:span 2"><label>تلفن / فکس خریدار</label><input type="text" id="bPh" oninput="render()"></div>
-</div></div></div>
-
-<div class="sc"><div class="sh" onclick="togSec(this)"><span><i class="fas fa-list" style="color:#8b5cf6"></i> آیتم‌های فاکتور و خدمات</span><i class="fas fa-chevron-down ar"></i></div>
-<div class="sb"><div id="IC" style="display:flex;flex-direction:column;gap:9px"></div><button class="bsec sm" style="margin-top:10px;width:100%;justify-content:center" onclick="addItem()" type="button"><i class="fas fa-plus"></i> افزودن آیتم جدید کالا</button></div></div>
-
-<div class="sc"><div class="sh" onclick="togSec(this)"><span><i class="fas fa-comment-dots" style="color:#ec4899"></i> توضیحات و شرایط پرداخت فاکتور</span><i class="fas fa-chevron-down ar"></i></div>
-<div class="sb">
-<div style="display:flex;gap:14px;margin-bottom:9px;flex-wrap:wrap">
-<label class="rc" id="caL"><input type="checkbox" id="fCa" onchange="togPay()"> نقدی</label>
-<label class="rc" id="ncL"><input type="checkbox" id="fNc" onchange="togPay()"> غیرنقدی</label>
-</div>
-<div class="fd"><label>توضیحات تکمیلی فاکتور</label><textarea id="fNo" oninput="render()"></textarea></div>
-</div></div>
-
+<!-- نوار بالا -->
+<div id="topBar" class="py-2 text-center z-50 relative transition-all duration-400" style="background: linear-gradient(90deg, rgb(127, 29, 29), rgb(220, 38, 38), rgb(127, 29, 29));">
+<a href="https://hezaroyek1001.ir/services/free-invoice" class="text-white text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="bg-white/20 text-xs px-2.5 py-0.5 rounded-full flex items-center gap-1.5 backdrop-blur-sm"><span class="w-1.5 h-1.5 bg-white rounded-full pulse-dot"></span>رایگان</span>
+سامانه صدور فاکتور رایگان
+<iconify-icon icon="lucide:arrow-left" width="13"></iconify-icon>
+</a>
 </div>
 
-<!-- بخش پیش‌نمایش زنده فاکتور فروش -->
-<div style="position:sticky;top:70px;height:calc(100vh - 90px)" id="PP">
-<div style="background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:12px;height:100%;display:flex;flex-direction:column;transition:background .3s,border-color .3s">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-<span style="font-size:12px;font-weight:700;color:var(--mut)"><i class="fas fa-eye" style="margin-left:5px"></i>پیش‌نمایش آنلاین فاکتور</span>
-<div style="display:flex;gap:6px">
-<button class="bp sm" onclick="dlImg()" style="background:linear-gradient(135deg,#10b981,#059669);padding:4px 10px;font-size:10px" type="button"><i class="fas fa-image"></i> دانلود عکس</button>
-<button class="bp sm" onclick="dlPDF()" style="padding:4px 10px;font-size:10px" type="button"><i class="fas fa-file-pdf"></i> دانلود PDF</button>
+<!-- ناوبری -->
+<nav id="mainNav" class="fixed inset-x-0 z-40 h-14 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200/60 dark:border-gray-800/60 transition-all duration-300" style="top: 38px;">
+<div class="max-w-6xl mx-auto px-4 h-full flex items-center justify-between">
+<a href="#home" class="flex items-center gap-2.5 group">
+<img src="logo.png" alt="لوگو گروه فناوری اطلاعات هزار و یک" class="h-7 transition-transform duration-300 group-hover:scale-105">
+<span class="text-sm font-bold text-gray-900 dark:text-white">هزار و یک</span>
+</a>
+<div class="hidden lg:flex items-center gap-1">
+<a href="#home" data-section="home" class="nav-link px-3 py-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-all duration-200">خانه</a>
+<a href="#services" data-section="services" class="nav-link px-3 py-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-all duration-200">خدمات</a>
+<a href="#admin" data-section="admin" class="nav-link px-3 py-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-all duration-200 is-active">خدمات اداری</a>
+<a href="#reg" data-section="reg" class="nav-link px-3 py-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-all duration-200">واحد ثبت</a>
+<a href="#contact" data-section="contact" class="nav-link px-3 py-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-all duration-200">تماس</a>
+<a href="#consult" class="btn-primary text-xs font-medium px-4 py-1.5 rounded-lg mr-1">مشاوره رایگان</a>
+</div>
+<div class="flex items-center gap-1.5">
+<button id="themeToggleBtn" type="button" aria-label="تغییر حالت روشن و تاریک" class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">
+<iconify-icon icon="lucide:sun" width="16" id="themeIcon"></iconify-icon>
+</button>
+<button id="menuOpenBtn" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobileMenu" class="lg:hidden w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">
+<iconify-icon icon="lucide:menu" width="18"></iconify-icon>
+</button>
 </div>
 </div>
-<div class="psc" style="flex:1;background:var(--sb);border-radius:8px;padding:10px;transition:background .3s" id="PSc">
-<div id="invprev"></div>
-</div></div></div>
+</nav>
+
+<!-- منوی موبایل -->
+<div id="mobileMenu" class="mobile-menu fixed inset-0 z-50 bg-white dark:bg-gray-950 lg:hidden" role="dialog" aria-modal="true" aria-label="منوی ناوبری" aria-hidden="true">
+<div class="flex items-center justify-between p-4 border-b border-gray-100 dark:border-gray-800">
+<span class="text-sm font-bold text-gray-900 dark:text-white">منو</span>
+<button id="menuCloseBtn" type="button" aria-label="بستن منو" class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition"><iconify-icon icon="lucide:x" width="20"></iconify-icon></button>
+</div>
+<div class="p-4 space-y-1 overflow-y-auto" style="max-height: calc(100vh - 64px);">
+<a href="#home" class="mobile-link block px-4 py-3 text-sm text-gray-600 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/80 transition">خانه</a>
+<a href="#services" class="mobile-link block px-4 py-3 text-sm text-gray-600 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/80 transition">خدمات فنی</a>
+<a href="#admin" class="mobile-link block px-4 py-3 text-sm text-gray-600 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/80 transition">خدمات اداری و کافی‌نت</a>
+<a href="#reg" class="mobile-link block px-4 py-3 text-sm text-gray-600 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/80 transition">واحد ثبت</a>
+<a href="#about" class="mobile-link block px-4 py-3 text-sm text-gray-600 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/80 transition">درباره ما</a>
+<a href="#contact" class="mobile-link block px-4 py-3 text-sm text-gray-600 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/80 transition">تماس</a>
+<a href="#consult" class="mobile-link btn-primary block text-center text-sm font-medium px-4 py-3 rounded-xl mt-3">مشاوره رایگان</a>
+</div>
+</div>
+
+<main id="main">
+
+<!-- هیرو -->
+<section id="home" class="relative min-h-screen flex items-center pt-24 pb-16 bg-white dark:bg-gray-950 overflow-hidden">
+<!-- بلاب‌های دکوراتیو -->
+<div class="deco-blob w-[500px] h-[500px] -top-40 -left-40 bg-red-300 dark:bg-red-900" style="position:absolute;"></div>
+<div class="deco-blob w-[400px] h-[400px] bottom-0 right-0 bg-amber-200 dark:bg-amber-900" style="position:absolute;"></div>
+<div class="deco-blob w-[300px] h-[300px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-rose-200 dark:bg-rose-900" style="position:absolute;opacity:.2;"></div>
+
+<div class="max-w-6xl mx-auto px-4 w-full relative z-10">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="reveal in-view">
+<span class="inline-flex items-center gap-2 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm border border-red-100 dark:border-red-800/30">
+<span class="w-2 h-2 bg-red-500 rounded-full pulse-dot"></span>هایتک در قلب کویر
+</span>
+<h1 class="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold text-gray-900 dark:text-white leading-[1.15] mb-6 tracking-tight">
+فناوری<br><span class="gradient-text">بی‌مرز</span>، از دل کویر
+</h1>
+<p class="text-gray-500 dark:text-gray-400 leading-[1.85] mb-8 max-w-md text-[15px]">
+گروه فناوری اطلاعات هزار و یک با دانش بومی و نگاه جهانی، راهکارهای دیجیتال نوآورانه برای کسب‌وکار شما ارائه می‌دهد.
+</p>
+<div class="flex flex-wrap gap-3 mb-10">
+<a href="#services" class="btn-primary text-sm font-medium px-7 py-3 rounded-xl flex items-center gap-2 shadow-lg shadow-red-600/20">مشاهده خدمات <iconify-icon icon="lucide:arrow-left" width="15"></iconify-icon></a>
+<a href="#consult" class="btn-outline text-sm font-medium px-7 py-3 rounded-xl flex items-center gap-2">مشاوره رایگان <iconify-icon icon="lucide:phone" width="14"></iconify-icon></a>
+</div>
+<div class="flex gap-8 pt-7 border-t border-gray-200/80 dark:border-gray-800/80">
+<div><div class="text-2xl font-extrabold text-gray-900 dark:text-white">+۵۰</div><div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">پروژه موفق</div></div>
+<div><div class="text-2xl font-extrabold text-gray-900 dark:text-white">+۱۰۰</div><div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">مشتری فعال</div></div>
+<div><div class="text-2xl font-extrabold text-gray-900 dark:text-white">۲۴/۷</div><div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">پشتیبانی</div></div>
+</div>
+</div>
+<div class="reveal in-view reveal-d2 hidden lg:block">
+<div class="relative">
+<div class="rounded-2xl overflow-hidden float-anim shadow-2xl shadow-gray-900/10 dark:shadow-black/30" style="width:480px;height:320px;">
+<img src="about.webp" alt="نمایی از فعالیت‌های گروه فناوری اطلاعات هزار و یک" class="w-full h-full object-cover">
+</div>
+<!-- حلقه دکوراتیو -->
+<div class="absolute -top-4 -right-4 w-24 h-24 border-2 border-dashed border-red-200 dark:border-red-800/40 rounded-2xl -z-10 opacity-60"></div>
+<div class="absolute -bottom-4 -left-4 w-32 h-32 border-2 border-dashed border-amber-200 dark:border-amber-800/30 rounded-full -z-10 opacity-40"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- خدمات فنی -->
+<section id="services" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors relative overflow-hidden">
+<div class="deco-blob w-[400px] h-[400px] -top-20 -right-20 bg-red-200 dark:bg-red-900/50" style="position:absolute;opacity:.2;"></div>
+
+<div class="max-w-6xl mx-auto px-4 relative z-10">
+<div class="text-center mb-12 reveal in-view">
+<span class="inline-flex items-center gap-2 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-4 py-1.5 rounded-full mb-4 border border-red-100 dark:border-red-800/30">
+<iconify-icon icon="lucide:layers" width="13"></iconify-icon>خدمات فنی
+</span>
+<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">راهکارهای جامع دیجیتال</h2>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+<a href="https://hezaroyek1001.ir/services/voip" class="service-card bg-white dark:bg-gray-800 rounded-2xl p-5 reveal in-view reveal-d1">
+<div class="flex items-start justify-between mb-4">
+<div class="service-icon w-11 h-11 rounded-xl bg-gray-100 dark:bg-gray-700/80 flex items-center justify-center text-gray-400"><iconify-icon icon="lucide:phone-call" width="19"></iconify-icon></div>
+<iconify-icon icon="lucide:arrow-up-left" width="15" class="service-arrow text-red-500 mt-1"></iconify-icon>
+</div>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-1.5">تلفن سازمانی و گویا</h3>
+<p class="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">سامانه VoIP پیشرفته با قابلیت‌های گسترده</p>
+</a>
+
+<a href="https://hezaroyek1001.ir/services/web-design" class="service-card bg-white dark:bg-gray-800 rounded-2xl p-5 reveal in-view reveal-d2">
+<div class="flex items-start justify-between mb-4">
+<div class="service-icon w-11 h-11 rounded-xl bg-gray-100 dark:bg-gray-700/80 flex items-center justify-center text-gray-400"><iconify-icon icon="lucide:globe" width="19"></iconify-icon></div>
+<iconify-icon icon="lucide:arrow-up-left" width="15" class="service-arrow text-red-500 mt-1"></iconify-icon>
+</div>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-1.5">طراحی وب‌سایت</h3>
+<p class="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">سایت‌های حرفه‌ای و فروشگاهی</p>
+</a>
+
+<a href="https://hezaroyek1001.ir/services/accounting" class="service-card bg-white dark:bg-gray-800 rounded-2xl p-5 reveal in-view reveal-d3">
+<div class="flex items-start justify-between mb-4">
+<div class="service-icon w-11 h-11 rounded-xl bg-gray-100 dark:bg-gray-700/80 flex items-center justify-center text-gray-400"><iconify-icon icon="lucide:calculator" width="19"></iconify-icon></div>
+<iconify-icon icon="lucide:arrow-up-left" width="15" class="service-arrow text-red-500 mt-1"></iconify-icon>
+</div>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-1.5">نرم‌افزار حسابداری</h3>
+<p class="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">مدیریت مالی، انبار و منابع انسانی</p>
+</a>
+
+<a href="https://hezaroyek1001.ir/services/network" class="service-card bg-white dark:bg-gray-800 rounded-2xl p-5 reveal in-view reveal-d1">
+<div class="flex items-start justify-between mb-4">
+<div class="service-icon w-11 h-11 rounded-xl bg-gray-100 dark:bg-gray-700/80 flex items-center justify-center text-gray-400"><iconify-icon icon="lucide:network" width="19"></iconify-icon></div>
+<iconify-icon icon="lucide:arrow-up-left" width="15" class="service-arrow text-red-500 mt-1"></iconify-icon>
+</div>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-1.5">شبکه و زیرساخت</h3>
+<p class="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">طراحی و پیاده‌سازی شبکه</p>
+</a>
+
+<a href="https://hezaroyek1001.ir/services/security" class="service-card bg-white dark:bg-gray-800 rounded-2xl p-5 reveal in-view reveal-d2">
+<div class="flex items-start justify-between mb-4">
+<div class="service-icon w-11 h-11 rounded-xl bg-gray-100 dark:bg-gray-700/80 flex items-center justify-center text-gray-400"><iconify-icon icon="lucide:shield" width="19"></iconify-icon></div>
+<iconify-icon icon="lucide:arrow-up-left" width="15" class="service-arrow text-red-500 mt-1"></iconify-icon>
+</div>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-1.5">امنیت و نظارت</h3>
+<p class="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">دوربین، کنترل تردد، امنیت سایبری</p>
+</a>
+
+<a href="https://hezaroyek1001.ir/services/support" class="service-card bg-white dark:bg-gray-800 rounded-2xl p-5 reveal in-view reveal-d3">
+<div class="flex items-start justify-between mb-4">
+<div class="service-icon w-11 h-11 rounded-xl bg-gray-100 dark:bg-gray-700/80 flex items-center justify-center text-gray-400"><iconify-icon icon="lucide:headphones" width="19"></iconify-icon></div>
+<iconify-icon icon="lucide:arrow-up-left" width="15" class="service-arrow text-red-500 mt-1"></iconify-icon>
+</div>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-1.5">پشتیبانی فنی</h3>
+<p class="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">پشتیبانی ۲۴ ساعته و نگهداری</p>
+</a>
+
+</div>
+</div>
+</section>
+
+<!-- کافی‌نت و خدمات اداری -->
+<section id="admin" class="py-20 bg-white dark:bg-gray-950 transition-colors relative overflow-hidden">
+<div class="deco-blob w-[350px] h-[350px] bottom-0 left-0 bg-amber-200 dark:bg-amber-900/40" style="position:absolute;opacity:.15;"></div>
+
+<div class="max-w-6xl mx-auto px-4 relative z-10">
+<div class="split-border rounded-2xl p-6 sm:p-10 bg-gray-50/80 dark:bg-gray-900/50 backdrop-blur-sm reveal in-view">
+<div class="grid lg:grid-cols-5 gap-8">
+<div class="lg:col-span-3">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center shadow-sm"><iconify-icon icon="lucide:briefcase" width="19" class="text-red-600 dark:text-red-400"></iconify-icon></div>
+<div><h2 class="text-lg font-bold text-gray-900 dark:text-white">کافی‌نت و خدمات اداری</h2><p class="text-xs text-gray-400 mt-0.5">مرکز جامع خدمات اداری، بانکی، بیمه و چاپ</p></div>
+</div>
+<div class="grid sm:grid-cols-2 gap-6 mt-5">
+<div>
+<h4 class="text-xs font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2"><iconify-icon icon="lucide:landmark" width="14" class="text-red-600"></iconify-icon>خدمات اداری و بانکی</h4>
+<ul class="space-y-2">
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">افتتاح و معدل حساب بانکی</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">خرید و فروش امتیاز وام</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">بیمه شخص ثالث و بدنه</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">نوبت‌دهی تعویض پلاک</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">استعلام سامانه‌های دولتی</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">سیم‌کارت و اینترنت</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">کارتخوان بی‌سیم (پوز)</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">اظهارنامه مالیاتی</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">بلیط هواپیما و قطار</span></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2"><iconify-icon icon="lucide:printer" width="14" class="text-red-600"></iconify-icon>چاپ، صحافی و طراحی</h4>
+<ul class="space-y-2">
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">کپی، پرینت و اسکن</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">صحافی کتاب و پایان‌نامه</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">ست اداری و فاکتور</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">کارت ویزیت و تراکت</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">پوستر و بروشور</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="9" class="text-red-600"></iconify-icon></span><span class="text-xs text-gray-500 dark:text-gray-400">پرچم ساحلی و تبلیغاتی</span></li>
+</ul>
+</div>
+</div>
+<a href="https://hezaroyek1001.ir/services/Internet-Cafe" class="inline-flex items-center gap-2 text-xs font-medium text-red-600 dark:text-red-400 mt-5 hover:gap-3 transition-all duration-300">صفحه اختصاصی <iconify-icon icon="lucide:arrow-left" width="13"></iconify-icon></a>
+</div>
+<div class="lg:col-span-2">
+<div class="bg-white dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700/80 rounded-2xl p-5 shadow-sm">
+<h4 class="text-xs font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2"><iconify-icon icon="lucide:message-square" width="14" class="text-red-600"></iconify-icon>مشاوره خدمات اداری</h4>
+<form id="adminForm" class="space-y-3" novalidate="">
+<label for="adminName" class="sr-only">نام و نام خانوادگی</label>
+<input type="text" id="adminName" name="name" required="" autocomplete="name" placeholder="نام و نام خانوادگی" class="form-input w-full rounded-xl px-4 py-2.5 text-xs bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400">
+<label for="adminPhone" class="sr-only">شماره موبایل</label>
+<input type="tel" id="adminPhone" name="phone" required="" autocomplete="tel" pattern="^09[0-9]{9}$" placeholder="شماره موبایل" dir="ltr" class="form-input w-full rounded-xl px-4 py-2.5 text-xs bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400">
+<input type="hidden" name="service" value="خدمات اداری و کافی‌نت">
+<label for="adminSub" class="sr-only">نوع خدمت</label>
+<select id="adminSub" name="sub" class="form-input w-full rounded-xl px-4 py-2.5 text-xs bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white">
+<option value="">نوع خدمت...</option>
+<option>خرید و فروش وام</option><option>خدمات بانکی</option><option>بیمه</option><option>تعویض پلاک</option><option>چاپ و صحافی</option><option>سایر</option>
+</select>
+<label for="adminMsg" class="sr-only">توضیحات</label>
+<textarea id="adminMsg" name="message" rows="2" placeholder="توضیحات..." class="form-input w-full rounded-xl px-4 py-2.5 text-xs bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 resize-none"></textarea>
+<input type="text" name="_h" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button type="submit" class="btn-primary w-full text-xs font-medium py-2.5 rounded-xl flex items-center justify-center gap-2"><iconify-icon icon="lucide:send" width="13"></iconify-icon>ارسال درخواست</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- واحد ثبت -->
+<section id="reg" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors relative overflow-hidden">
+<div class="deco-blob w-[300px] h-[300px] top-10 right-0 bg-emerald-200 dark:bg-emerald-900/40" style="position:absolute;opacity:.15;"></div>
+
+<div class="max-w-6xl mx-auto px-4 relative z-10">
+<div class="split-border rounded-2xl p-6 sm:p-10 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm reveal in-view">
+<div class="grid lg:grid-cols-5 gap-8">
+<div class="lg:col-span-3">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center shadow-sm"><iconify-icon icon="lucide:file-check" width="19" class="text-red-600 dark:text-red-400"></iconify-icon></div>
+<div><h2 class="text-lg font-bold text-gray-900 dark:text-white">واحد ثبت گروه هزار و یک</h2><p class="text-xs text-gray-400 mt-0.5">امور ثبتی، حقوقی و املاک</p></div>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-5">آماده ارائه خدمات کامل ثبت شرکت‌ها، برندها و امور مرتبط با اسناد و املاک.</p>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow duration-300">
+<div class="flex items-center gap-2 mb-3"><span class="w-6 h-6 rounded-full text-[10px] font-bold text-white flex items-center justify-center bg-gradient-to-br from-red-500 to-red-700 shadow-sm">۱</span><h5 class="text-xs font-bold text-gray-900 dark:text-white">ثبت شرکت</h5></div>
+<ul class="space-y-1.5">
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="8" class="text-red-600"></iconify-icon></span><span class="text-[11px] text-gray-500">مشاوره انتخاب نوع</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="8" class="text-red-600"></iconify-icon></span><span class="text-[11px] text-gray-500">تهیه مدارک</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="8" class="text-red-600"></iconify-icon></span><span class="text-[11px] text-gray-500">ثبت و دریافت شماره</span></li>
+</ul>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow duration-300">
+<div class="flex items-center gap-2 mb-3"><span class="w-6 h-6 rounded-full text-[10px] font-bold text-white flex items-center justify-center bg-gradient-to-br from-red-500 to-red-700 shadow-sm">۲</span><h5 class="text-xs font-bold text-gray-900 dark:text-white">ثبت برند</h5></div>
+<ul class="space-y-1.5">
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="8" class="text-red-600"></iconify-icon></span><span class="text-[11px] text-gray-500">بررسی و استعلام</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="8" class="text-red-600"></iconify-icon></span><span class="text-[11px] text-gray-500">اظهارنامه و دفاع</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="8" class="text-red-600"></iconify-icon></span><span class="text-[11px] text-gray-500">دریافت گواهی</span></li>
+</ul>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow duration-300">
+<div class="flex items-center gap-2 mb-3"><span class="w-6 h-6 rounded-full text-[10px] font-bold text-white flex items-center justify-center bg-gradient-to-br from-red-500 to-red-700 shadow-sm">۳</span><h5 class="text-xs font-bold text-gray-900 dark:text-white">آگهی تغییرات</h5></div>
+<ul class="space-y-1.5">
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="8" class="text-red-600"></iconify-icon></span><span class="text-[11px] text-gray-500">تغییر نام و موضوع</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="8" class="text-red-600"></iconify-icon></span><span class="text-[11px] text-gray-500">تغییر هیئت‌مدیره</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="8" class="text-red-600"></iconify-icon></span><span class="text-[11px] text-gray-500">نقل‌وانتقال سهام</span></li>
+</ul>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow duration-300">
+<div class="flex items-center gap-2 mb-3"><span class="w-6 h-6 rounded-full text-[10px] font-bold text-white flex items-center justify-center bg-gradient-to-br from-red-500 to-red-700 shadow-sm">۴</span><h5 class="text-xs font-bold text-gray-900 dark:text-white">تعیین تکلیف اراضی</h5></div>
+<ul class="space-y-1.5">
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="8" class="text-red-600"></iconify-icon></span><span class="text-[11px] text-gray-500">پیگیری ثبتی ملک</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="8" class="text-red-600"></iconify-icon></span><span class="text-[11px] text-gray-500">رفع تعارضات</span></li>
+<li class="flex items-center gap-2"><span class="check-icon"><iconify-icon icon="lucide:check" width="8" class="text-red-600"></iconify-icon></span><span class="text-[11px] text-gray-500">اخذ سند تک‌برگ</span></li>
+</ul>
+</div>
+</div>
+<a href="https://hezaroyek1001.ir/services/registration" class="inline-flex items-center gap-2 text-xs font-medium text-red-600 dark:text-red-400 mt-5 hover:gap-3 transition-all duration-300">صفحه اختصاصی <iconify-icon icon="lucide:arrow-left" width="13"></iconify-icon></a>
+</div>
+<div class="lg:col-span-2">
+<div class="bg-white dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700/80 rounded-2xl p-5 shadow-sm">
+<h4 class="text-xs font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2"><iconify-icon icon="lucide:message-square" width="14" class="text-red-600"></iconify-icon>مشاوره امور ثبتی</h4>
+<form id="regForm" class="space-y-3" novalidate="">
+<label for="regName" class="sr-only">نام و نام خانوادگی</label>
+<input type="text" id="regName" name="name" required="" autocomplete="name" placeholder="نام و نام خانوادگی" class="form-input w-full rounded-xl px-4 py-2.5 text-xs bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400">
+<label for="regPhone" class="sr-only">شماره موبایل</label>
+<input type="tel" id="regPhone" name="phone" required="" autocomplete="tel" pattern="^09[0-9]{9}$" placeholder="شماره موبایل" dir="ltr" class="form-input w-full rounded-xl px-4 py-2.5 text-xs bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400">
+<input type="hidden" name="service" value="واحد ثبت شرکت">
+<label for="regSub" class="sr-only">نوع خدمت</label>
+<select id="regSub" name="sub" class="form-input w-full rounded-xl px-4 py-2.5 text-xs bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white">
+<option value="">نوع خدمت...</option>
+<option>ثبت شرکت</option><option>ثبت برند</option><option>آگهی تغییرات</option><option>تعیین تکلیف اراضی</option><option>سایر</option>
+</select>
+<label for="regMsg" class="sr-only">توضیحات</label>
+<textarea id="regMsg" name="message" rows="2" placeholder="توضیحات..." class="form-input w-full rounded-xl px-4 py-2.5 text-xs bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 resize-none"></textarea>
+<input type="text" name="_h" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button type="submit" class="btn-primary w-full text-xs font-medium py-2.5 rounded-xl flex items-center justify-center gap-2"><iconify-icon icon="lucide:send" width="13"></iconify-icon>ارسال درخواست</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- تماس -->
+<section id="contact" class="py-20 bg-white dark:bg-gray-950 transition-colors relative overflow-hidden">
+<div class="deco-blob w-[350px] h-[350px] -bottom-20 left-1/3 bg-red-200 dark:bg-red-900/40" style="position:absolute;opacity:.12;"></div>
+
+<div class="max-w-6xl mx-auto px-4 relative z-10">
+<div class="text-center mb-12 reveal in-view">
+<span class="inline-flex items-center gap-2 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-4 py-1.5 rounded-full mb-4 border border-red-100 dark:border-red-800/30"><iconify-icon icon="lucide:share-2" width="13"></iconify-icon>ارتباط با ما</span>
+<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">شبکه‌های اجتماعی</h2>
+</div>
+
+<div class="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto mb-10 reveal in-view">
+<div class="bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-4 flex items-center gap-3 border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow duration-300">
+<div class="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center flex-shrink-0 shadow-sm"><iconify-icon icon="lucide:phone" width="16" class="text-red-600"></iconify-icon></div>
+<div><div class="text-[11px] font-semibold text-gray-900 dark:text-white">تلفن ثابت</div><a href="tel:03591014985" class="text-xs text-gray-500 hover:text-red-500 transition-colors" dir="ltr">۰۳۵-۹۱۰۱۴۹۸۵</a></div>
+</div>
+<div class="bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-4 flex items-center gap-3 border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow duration-300">
+<div class="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center flex-shrink-0 shadow-sm"><iconify-icon icon="lucide:smartphone" width="16" class="text-red-600"></iconify-icon></div>
+<div><div class="text-[11px] font-semibold text-gray-900 dark:text-white">موبایل</div><a href="tel:09135174985" class="text-xs text-gray-500 hover:text-red-500 transition-colors" dir="ltr">۰۹۱۳-۵۱۷-۴۹۸۵</a></div>
+</div>
+<div class="bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-4 flex items-center gap-3 border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow duration-300">
+<div class="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center flex-shrink-0 shadow-sm"><iconify-icon icon="lucide:map-pin" width="16" class="text-red-600"></iconify-icon></div>
+<div><div class="text-[11px] font-semibold text-gray-900 dark:text-white">آدرس</div><p class="text-xs text-gray-500">میبد - خیابان امام - جنب بانک شهر</p></div>
+</div>
+</div>
+
+<div class="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+<div class="bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-5 text-center border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 reveal in-view reveal-d1">
+<div class="w-12 h-12 rounded-2xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center mx-auto mb-3 shadow-sm"><iconify-icon icon="lucide:cpu" width="20" class="text-red-600"></iconify-icon></div>
+<h4 class="text-xs font-bold text-gray-900 dark:text-white mb-0.5">واحد اصلی</h4>
+<p class="text-[11px] text-gray-400 mb-3" dir="ltr">@hezaroyek1001_ir</p>
+<div class="flex items-center justify-center gap-1.5">
+<a href="https://t.me/hezaroyek1001_ir" target="_blank" rel="noopener" aria-label="تلگرام واحد اصلی" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="simple-icons:telegram" width="13"></iconify-icon></a>
+<a href="https://instagram.com/hezaroyek1001_ir" target="_blank" rel="noopener" aria-label="اینستاگرام واحد اصلی" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="simple-icons:instagram" width="13"></iconify-icon></a>
+<a href="https://rubika.ir/hezaroyek1001_ir" target="_blank" rel="noopener" aria-label="روبیکا واحد اصلی" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="lucide:message-circle" width="13"></iconify-icon></a>
+<a href="https://eitaa.com/hezaroyek1001_ir" target="_blank" rel="noopener" aria-label="ایتا واحد اصلی" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="lucide:send" width="13"></iconify-icon></a>
+<a href="https://bale.ai/hezaroyek1001_ir" target="_blank" rel="noopener" aria-label="بله واحد اصلی" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="lucide:mail" width="13"></iconify-icon></a>
+</div>
+</div>
+<div class="bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-5 text-center border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 reveal in-view reveal-d2">
+<div class="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center mx-auto mb-3 shadow-sm"><iconify-icon icon="lucide:briefcase" width="20" class="text-amber-500"></iconify-icon></div>
+<h4 class="text-xs font-bold text-gray-900 dark:text-white mb-0.5">واحد اداری</h4>
+<p class="text-[11px] text-gray-400 mb-3" dir="ltr">@hezaroyek1001_c</p>
+<div class="flex items-center justify-center gap-1.5">
+<a href="https://t.me/hezaroyek1001_c" target="_blank" rel="noopener" aria-label="تلگرام واحد اداری" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="simple-icons:telegram" width="13"></iconify-icon></a>
+<a href="https://instagram.com/hezaroyek1001_c" target="_blank" rel="noopener" aria-label="اینستاگرام واحد اداری" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="simple-icons:instagram" width="13"></iconify-icon></a>
+<a href="https://rubika.ir/hezaroyek1001_c" target="_blank" rel="noopener" aria-label="روبیکا واحد اداری" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="lucide:message-circle" width="13"></iconify-icon></a>
+<a href="https://eitaa.com/hezaroyek1001_c" target="_blank" rel="noopener" aria-label="ایتا واحد اداری" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="lucide:send" width="13"></iconify-icon></a>
+<a href="https://bale.ai/hezaroyek1001_c" target="_blank" rel="noopener" aria-label="بله واحد اداری" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="lucide:mail" width="13"></iconify-icon></a>
+</div>
+</div>
+<div class="bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-5 text-center border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 reveal in-view reveal-d3">
+<div class="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center mx-auto mb-3 shadow-sm"><iconify-icon icon="lucide:file-check" width="20" class="text-emerald-500"></iconify-icon></div>
+<h4 class="text-xs font-bold text-gray-900 dark:text-white mb-0.5">واحد ثبت</h4>
+<p class="text-[11px] text-gray-400 mb-3" dir="ltr">@hezaroyek1001_sabt</p>
+<div class="flex items-center justify-center gap-1.5">
+<a href="https://t.me/hezaroyek1001_sabt" target="_blank" rel="noopener" aria-label="تلگرام واحد ثبت" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="simple-icons:telegram" width="13"></iconify-icon></a>
+<a href="https://instagram.com/hezaroyek1001_sabt" target="_blank" rel="noopener" aria-label="اینستاگرام واحد ثبت" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="simple-icons:instagram" width="13"></iconify-icon></a>
+<a href="https://rubika.ir/hezaroyek1001_sabt" target="_blank" rel="noopener" aria-label="روبیکا واحد ثبت" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="lucide:message-circle" width="13"></iconify-icon></a>
+<a href="https://eitaa.com/hezaroyek1001_sabt" target="_blank" rel="noopener" aria-label="ایتا واحد ثبت" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="lucide:send" width="13"></iconify-icon></a>
+<a href="https://bale.ai/hezaroyek1001_sabt" target="_blank" rel="noopener" aria-label="بله واحد ثبت" class="social-btn w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 bg-gray-100 dark:bg-gray-700"><iconify-icon icon="lucide:mail" width="13"></iconify-icon></a>
+</div>
+</div>
+</div>
+</div>
+</section>
 
 </main>
 
+<!-- فوتر -->
+<footer class="footer-gradient text-white pt-14 pb-8 px-4 relative overflow-hidden">
+<div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-red-500/30 to-transparent"></div>
+<div class="max-w-6xl mx-auto relative z-10">
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+<div>
+<div class="flex items-center gap-2.5 mb-4">
+<img src="logo.png" alt="لوگو گروه فناوری اطلاعات هزار و یک" class="h-7 brightness-200">
+<span class="text-sm font-bold">هزار و یک</span>
+</div>
+<p class="text-[11px] text-gray-400 leading-relaxed">گروه هایتک هزار و یک از قلب کویر میبد</p>
+</div>
+<div>
+<h4 class="text-xs font-bold mb-3 text-gray-200">خدمات فنی</h4>
+<ul class="space-y-2">
+<li><a href="https://hezaroyek1001.ir/services/voip" class="text-[11px] text-gray-400 hover:text-red-400 transition-colors">تلفن سازمانی</a></li>
+<li><a href="https://hezaroyek1001.ir/services/web-design" class="text-[11px] text-gray-400 hover:text-red-400 transition-colors">طراحی سایت</a></li>
+<li><a href="https://hezaroyek1001.ir/services/network" class="text-[11px] text-gray-400 hover:text-red-400 transition-colors">شبکه</a></li>
+<li><a href="https://hezaroyek1001.ir/services/security" class="text-[11px] text-gray-400 hover:text-red-400 transition-colors">امنیت</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold mb-3 text-gray-200">خدمات اداری</h4>
+<ul class="space-y-2">
+<li><a href="https://hezaroyek1001.ir/services/admin-cafe" class="text-[11px] text-gray-400 hover:text-red-400 transition-colors">کافی‌نت</a></li>
+<li><a href="https://hezaroyek1001.ir/services/registration" class="text-[11px] text-gray-400 hover:text-red-400 transition-colors">ثبت شرکت</a></li>
+<li><a href="https://hezaroyek1001.ir/services/free-invoice" class="text-[11px] text-red-400 hover:text-red-300 flex items-center gap-1.5 transition-colors"><iconify-icon icon="lucide:gift" width="10"></iconify-icon>فاکتور رایگان</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold mb-3 text-gray-200">تماس</h4>
+<p class="text-[11px] text-gray-400 leading-relaxed" dir="ltr">035-91014985<br>0913-517-4985</p>
+<p class="text-[11px] text-gray-500 mt-3 leading-relaxed">میبد - خیابان امام - جنب بانک شهر</p>
+</div>
+</div>
+<div class="border-t border-gray-800/60 pt-5 text-center text-[11px] text-gray-500">©1405  گروه فناوری اطلاعات هزار و یک</div>
+</div>
+</footer>
+
+<!-- دکمه شناور تماس -->
+<a href="tel:09135174985" aria-label="تماس تلفنی" class="fixed bottom-5 left-5 z-40 rounded-2xl flex items-center justify-center shadow-xl shadow-red-600/30 pulse-dot hover:scale-110 transition-transform duration-300" style="background: linear-gradient(135deg, var(--brand), var(--brand-dark)); width: 52px; height: 52px;">
+<iconify-icon icon="lucide:phone" width="21" class="text-white"></iconify-icon>
+</a>
+
+<!-- دکمه بازگشت به بالا -->
+<button id="backToTopBtn" type="button" aria-label="بازگشت به بالا" class="fixed bottom-5 right-5 z-40 w-11 h-11 rounded-xl flex items-center justify-center shadow-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-300 transition-all duration-300 opacity-0 pointer-events-none hover:shadow-xl hover:-translate-y-0.5">
+<iconify-icon icon="lucide:arrow-up" width="18"></iconify-icon>
+</button>
+
+<!-- تاست -->
+<div id="toastBox" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 pointer-events-none" aria-live="polite"></div>
+
 <script>
-var cur='ریال',vatOn=true,isOff=false,isPre=false,iColor='#000000',logo=null,stamp=null,renderTO=null;
-var isPreviewVisible=true; 
-var COLS=[{n:'مشکی',v:'#000000'},{n:'سبز',v:'#16a34a'},{n:'آبی',v:'#2563eb'},{n:'قرمز',v:'#dc2626'},{n:'نارنجی',v:'#ea580c'},{n:'بنفش',v:'#7c3aed'},{n:'فیروزه‌ای',v:'#0891b2'},{n:'صورتی',v:'#db2777'},{n:'خاکستری',v:'#475569'},{n:'قهوه‌ای',v:'#92400e'}];
+(function () {
+  'use strict';
 
-function fa(n){if(n===null||n===undefined)return'';return String(n).replace(/\d/g,function(d){return'۰۱۲۳۴۵۶۷۸۹'[d]})}
-function fm(n){if(!n&&n!==0)return'';return fa(Number(n).toLocaleString('en-US'))}
+  /* ===================== تم روشن/تاریک ===================== */
+  const html = document.documentElement;
+  const themeBtn = document.getElementById('themeToggleBtn');
+  const themeIcon = document.getElementById('themeIcon');
 
-/* توابع تبدیل تاریخ شمسی */
-function g2s(gy,gm,gd){var g=[0,31,59,90,120,151,181,212,243,273,304,334],g2=gm>2?gy+1:gy,d=355666+365*gy+Math.floor((g2+3)/4)-Math.floor((g2+99)/100)+Math.floor((g2+399)/400)+gd+g[gm-1],jy=-1595+33*Math.floor(d/12053);d%=12053;jy+=4*Math.floor(d/1461);d%=1461;if(d>365){jy+=Math.floor((d-1)/365);d=(d-1)%365}return d<186?[jy,1+Math.floor(d/31),1+d%31]:[jy,7+Math.floor((d-186)/30),1+(d-186)%30]}
+  function setTheme(isDark) {
+    html.classList.toggle('dark', isDark);
+    themeIcon.setAttribute('icon', isDark ? 'lucide:moon' : 'lucide:sun');
+  }
+  setTheme(html.classList.contains('dark'));
+  themeBtn.addEventListener('click', () => setTheme(!html.classList.contains('dark')));
 
-/* پر کردن منوهای کشویی تاریخ */
-function initDt(){
-var t=new Date(), r=g2s(t.getFullYear(), t.getMonth()+1, t.getDate());
-var currYear=r[0], currMonth=r[1], currDay=r[2];
+  /* ===================== منوی موبایل ===================== */
+  const menu = document.getElementById('mobileMenu');
+  const openBtn = document.getElementById('menuOpenBtn');
+  const closeBtn = document.getElementById('menuCloseBtn');
 
-var dSel=document.getElementById('fDay');
-for(var i=1;i<=31;i++) dSel.innerHTML+='<option value="'+i+'"'+(i===currDay?' selected':'')+'>'+fa(i)+'</option>';
+  function openMenu() {
+    menu.classList.add('is-open');
+    menu.setAttribute('aria-hidden', 'false');
+    openBtn.setAttribute('aria-expanded', 'true');
+    closeBtn.focus();
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.classList.remove('is-open');
+    menu.setAttribute('aria-hidden', 'true');
+    openBtn.setAttribute('aria-expanded', 'false');
+    openBtn.focus();
+    document.body.style.overflow = '';
+  }
+  openBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
+  });
 
-var mSel=document.getElementById('fMonth');
-var SM=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
-for(var i=0;i<12;i++) mSel.innerHTML+='<option value="'+(i+1)+'"'+((i+1)===currMonth?' selected':'')+'>'+SM[i]+'</option>';
+  /* ===================== اسکرول نرم ===================== */
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const nav = document.getElementById('mainNav');
 
-var ySel=document.getElementById('fYear');
-for(var i=currYear-5;i<=currYear+5;i++) ySel.innerHTML+='<option value="'+i+'"'+(i===currYear?' selected':'')+'>'+fa(i)+'</option>';
-}
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - nav.offsetHeight - 8,
+          behavior: prefersReducedMotion ? 'auto' : 'smooth'
+        });
+      }
+    });
+  });
 
-function togVAT(){vatOn=!vatOn;document.getElementById('vTG').classList.toggle('on',vatOn);document.getElementById('vLB').textContent=vatOn?'فعال':'غیرفعال';render()}
-function setTmpl(o){isOff=o;document.getElementById('tS').classList.toggle('ac',!o);document.getElementById('tO').classList.toggle('ac',o);render()}
-function setCur(c){cur=c;document.getElementById('cR').classList.toggle('ac',c==='ریال');document.getElementById('cT').classList.toggle('ac',c==='تومان');render()}
-function togPre(){isPre=document.getElementById('fPre').checked;document.getElementById('piL').classList.toggle('ac',isPre);document.getElementById('piC').style.color=isPre?'#e5a00d':'transparent';render()}
-function togPay(){document.getElementById('caL').classList.toggle('ac',document.getElementById('fCa').checked);document.getElementById('ncL').classList.toggle('ac',document.getElementById('fNc').checked);render()}
-function togSec(h){h.nextElementSibling.classList.toggle('cl');h.querySelector('.ar').classList.toggle('ro')}
-function togTheme(){var b=document.body,i=document.getElementById('TIC');if(b.getAttribute('data-theme')==='dark'){b.setAttribute('data-theme','light');i.className='fas fa-moon'}else{b.setAttribute('data-theme','dark');i.className='fas fa-sun'}scPr()}
+  /* ===================== رفتار اسکرول ===================== */
+  const topBar = document.getElementById('topBar');
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  let lastScrollY = 0;
 
-function togPreview(){
-isPreviewVisible=!isPreviewVisible;
-onRS();
-}
+  function handleScroll() {
+    const sy = window.scrollY;
 
-function initCol(){var c=document.getElementById('CP');COLS.forEach(function(co,i){var d=document.createElement('div');d.className='co'+(i===0?' ac':'');d.style.background=co.v;if(co.v==='#000000')d.style.outline='1px solid #444';d.title=co.n;d.onclick=function(){document.querySelectorAll('.co').forEach(function(x){x.classList.remove('ac')});document.querySelector('.ccw').classList.remove('ac');d.classList.add('ac');iColor=co.v;render()};c.appendChild(d)});var w=document.createElement('div');w.className='ccw';w.title='رنگ سفارشی';w.innerHTML='<input type="color" value="#e5a00d"><i class="fas fa-palette" style="font-size:9px;color:var(--mut);pointer-events:none"></i>';w.querySelector('input').addEventListener('input',function(e){document.querySelectorAll('.co').forEach(function(x){x.classList.remove('ac')});w.classList.add('ac');iColor=e.target.value;render()});c.appendChild(w)}
+    // نوار بالا: وقتی اسکرول شد مخفی شود
+    if (sy > 60) {
+      topBar.style.transform = 'translateY(-100%)';
+      topBar.style.opacity = '0';
+      nav.style.top = '0';
+    } else {
+      topBar.style.transform = '';
+      topBar.style.opacity = '1';
+      nav.style.top = '38px';
+    }
 
-function addItem(){var n=document.querySelectorAll('#IC .icard').length+1;var d=document.createElement('div');d.className='icard';d.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px"><div style="display:flex;align-items:center;gap:7px"><div class="inum">'+fa(n)+'</div><span style="font-size:12px;font-weight:600">آیتم '+fa(n)+'</span></div><button class="bd" onclick="rmItem(this)" type="button"><i class="fas fa-trash-alt"></i> حذف</button></div><div style="display:grid;grid-template-columns:1fr 2fr;gap:7px"><div class="fd"><label>کد کالا</label><input type="text" class="jc" oninput="render()"></div><div class="fd"><label>شرح کالا یا خدمات</label><input type="text" class="jd" oninput="render()"></div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:7px;margin-top:7px"><div class="fd"><label>تعداد</label><input type="number" class="jq" value="0" min="0" oninput="render()"></div><div class="fd"><label>واحد</label><input type="text" class="ju" placeholder="عدد" oninput="render()"></div><div class="fd"><label>مبلغ واحد</label><input type="number" class="jp" value="0" min="0" oninput="render()"></div><div class="fd"><label>تخفیف</label><input type="number" class="ji" value="0" min="0" oninput="render()"></div></div>';document.getElementById('IC').appendChild(d);render()}
-function rmItem(b){b.closest('.icard').remove();rnIt();render()}
-function rnIt(){document.querySelectorAll('.icard').forEach(function(c,i){c.querySelector('.inum').textContent=fa(i+1);c.querySelector('span').textContent='آیتم '+fa(i+1)})}
-function gIt(){return Array.from(document.querySelectorAll('.icard')).map(function(c){return{code:c.querySelector('.jc').value,desc:c.querySelector('.jd').value,qty:Math.max(0,parseFloat(c.querySelector('.jq').value)||0),unit:c.querySelector('.ju').value,price:Math.max(0,parseFloat(c.querySelector('.jp').value)||0),disc:Math.max(0,parseFloat(c.querySelector('.ji').value)||0)}})}
+    // دکمه بازگشت به بالا
+    const show = sy > 500;
+    backToTopBtn.classList.toggle('opacity-0', !show);
+    backToTopBtn.classList.toggle('pointer-events-none', !show);
 
-function upLogo(e){var f=e.target.files[0];if(!f)return;document.getElementById('lNm').textContent=f.name;document.getElementById('lRm').style.display='inline-flex';var r=new FileReader();r.onload=function(ev){logo=ev.target.result;var t=document.getElementById('lTh');t.src=logo;t.style.display='block';render()};r.readAsDataURL(f)}
-function rmLogo(){logo=null;document.getElementById('lI').value='';document.getElementById('lNm').textContent='فایلی انتخاب نشده';document.getElementById('lRm').style.display='none';document.getElementById('lTh').style.display='none';render()}
-function upStamp(e){var f=e.target.files[0];if(!f)return;document.getElementById('sNm2').textContent=f.name;document.getElementById('sRm2').style.display='inline-flex';var r=new FileReader();r.onload=function(ev){stamp=ev.target.result;var t=document.getElementById('sTh2');t.src=stamp;t.style.display='block';render()};r.readAsDataURL(f)}
-function rmStamp(){stamp=null;document.getElementById('sI').value='';document.getElementById('sNm2').textContent='فایلی انتخاب نشده';document.getElementById('sRm2').style.display='none';document.getElementById('sTh2').style.display='none';render()}
+    lastScrollY = sy;
+  }
 
-function gVAT(){var v=parseFloat(document.getElementById('fVAT').value);if(isNaN(v))return 10;return Math.min(100,Math.max(0,v))}
-function gD(){
-var y=document.getElementById('fYear').value;
-var m=document.getElementById('fMonth').value.padStart(2,'0');
-var dStr=document.getElementById('fDay').value.padStart(2,'0');
-var finalDate=y+'/'+m+'/'+dStr;
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  // اجرای اولیه برای تنظیم حالت شروع
+  handleScroll();
 
-return{num:document.getElementById('fNum').value,date:finalDate,cur:cur,vatOn:vatOn,vatP:gVAT(),off:isOff,pre:isPre,col:iColor,logo:logo,stamp:stamp,s:{n:document.getElementById('sN').value,e:document.getElementById('sE').value,r:document.getElementById('sR').value,a:document.getElementById('sA').value,p:document.getElementById('sP').value,c:document.getElementById('sCi').value,po:document.getElementById('sPo').value,na:document.getElementById('sNa').value,ph:document.getElementById('sPh').value},b:{n:document.getElementById('bN').value,e:document.getElementById('bE').value,r:document.getElementById('bR').value,a:document.getElementById('bA').value,p:document.getElementById('bP').value,c:document.getElementById('bCi').value,po:document.getElementById('bPo').value,na:document.getElementById('bNa').value,ph:document.getElementById('bPh').value},ca:document.getElementById('fCa').checked,nc:document.getElementById('fNc').checked,no:document.getElementById('fNo').value,items:gIt()}
-}
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+  });
 
-/* ===== ساخت قالب‌های فاکتور ======== */
-function bldInv(d){return d.off?bldOff(d):bldSmp(d)}
+  /* ===================== نمایان‌سازی هنگام اسکرول ===================== */
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-function bldOff(d){
-var C=d.col,cr=d.cur,its=d.items,vp=d.vatOn?d.vatP:0,pf=d.pre?'پیش ':'';
-var sT=0,sD=0,sA=0,sX=0,sG=0;
-its.forEach(function(it){var t=it.qty*it.price,a=t-it.disc,x=a*vp/100,g=a+x;sT+=t;sD+=it.disc;sA+=a;sX+=x;sG+=g});
-var h='<div style="padding:12px 16px;font-size:10.5px;line-height:1.6;color:#111">';
-h+='<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid '+C+';padding-bottom:7px;margin-bottom:8px;gap:8px">';
-h+='<div style="flex-shrink:0">';if(d.logo)h+='<img src="'+d.logo+'" style="height:40px;max-width:110px;object-fit:contain">';h+='</div>';
-h+='<div style="font-size:14px;font-weight:800;color:'+C+';text-align:center;flex:1">'+pf+'صورتحساب فروش کالا و خدمات</div>';
-h+='<div style="text-align:left;font-size:10.5px;flex-shrink:0"><div>شماره سریال : '+(d.num?fa(d.num):'ـــ')+'</div><div>تاریخ : '+(d.date?fa(d.date):'ـــ')+'</div></div></div>';
-h+=bldPty('مشخصات فروشنده',d.s,C);
-h+=bldPty('مشخصات خریدار',d.b,C);
-h+='<div style="border:1px solid '+C+';margin-top:5px;overflow:hidden"><div style="background:'+C+';color:#fff;padding:2px 8px;font-weight:700;font-size:11px">مشخصات کالا یا خدمات</div>';
-h+='<table style="width:100%;border-collapse:collapse;font-size:9px"><thead><tr style="background:'+C+'15">';
-var ths=['ردیف|24px','کد کالا|48px','شرح کالا یا خدمات|auto','تعداد|38px','واحد|34px','مبلغ واحد ('+cr+')|62px','مبلغ کل ('+cr+')|62px','تخفیف ('+cr+')|54px','پس از تخفیف ('+cr+')|66px','مالیات و عوارض ('+cr+')|58px','جمع کل + مالیات ('+cr+')|66px'];
-ths.forEach(function(t){var p=t.split('|');h+='<th style="border:1px solid #ccc;padding:3px 2px;'+(p[1]!=='auto'?'width:'+p[1]+';':'')+'white-space:nowrap">'+p[0]+'</th>'});
-h+='</tr></thead><tbody>';
-its.forEach(function(it,i){var t=it.qty*it.price,a=t-it.disc,x=a*vp/100,g=a+x;
-h+='<tr><td style="border:1px solid #ddd;padding:3px 2px;text-align:center">'+fa(i+1)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:center">'+fa(it.code)+'</td><td style="border:1px solid #ddd;padding:3px 3px">'+it.desc+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:center">'+fa(it.qty)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:center">'+it.unit+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:left">'+fm(it.price)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:left">'+fm(t)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:left">'+fm(it.disc)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:left">'+fm(a)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:left">'+fm(x)+'</td><td style="border:1px solid #ddd;padding:3px 2px;text-align:left;font-weight:600">'+fm(g)+'</td></tr>'});
-for(var i=its.length;i<7;i++){h+='<tr><td style="border:1px solid #ddd;padding:3px 2px;text-align:center">'+fa(i+1)+'</td>';for(var j=0;j<10;j++)h+='<td style="border:1px solid #ddd;padding:3px 2px">&nbsp;</td>';h+='</tr>'}
-h+='</tbody><tfoot><tr style="background:'+C+'10;font-weight:700;font-size:9.5px">';
-h+='<td colspan="6" style="border:1px solid #ccc;padding:4px 3px">جمع کل :</td>';
-h+='<td style="border:1px solid #ccc;padding:4px 2px;text-align:left">'+fm(sT)+'</td>';
-h+='<td style="border:1px solid #ccc;padding:4px 2px;text-align:left">'+fm(sD)+'</td>';
-h+='<td style="border:1px solid #ccc;padding:4px 2px;text-align:left">'+fm(sA)+'</td>';
-h+='<td style="border:1px solid #ccc;padding:4px 2px;text-align:left">'+fm(sX)+'</td>';
-h+='<td style="border:1px solid #ccc;padding:4px 2px;text-align:left;color:'+C+'">'+fm(sG)+'</td></tr></tfoot></table></div>';
-h+='<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:6px;gap:8px">';
-h+='<div style="flex:1;font-size:10px"><div>شرایط و نحوه فروش : '+(d.ca?'&#9745;':'&#9744;')+' نقدی &nbsp; '+(d.nc?'&#9745;':'&#9744;')+' غیرنقدی</div><div>توضیحات : '+(d.no||'ـــ')+'</div></div>';
-h+='<div style="text-align:center;font-weight:800;font-size:12px;color:'+C+';white-space:nowrap">قابل پرداخت : '+fm(sG)+' '+cr+'</div></div>';
-/* بخش اصلاح شده مهر و امضا با تراز دقیق */
-h+='<div style="display:flex;justify-content:space-between;margin-top:18px;font-size:10px">';
-h+='<div style="text-align:center;width:44%;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;">';
-if(d.stamp)h+='<img src="'+d.stamp+'" style="height:55px;max-width:85px;object-fit:contain;margin-bottom:4px;">';
-h+='<div style="border-top:1px solid #999;padding-top:3px;width:100%;">مهر و امضای فروشنده</div></div>';
-h+='<div style="text-align:center;width:44%;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;">';
-h+='<div style="border-top:1px solid #999;padding-top:3px;width:100%;">مهر و امضای خریدار</div></div></div>';
-return h+'</div>'}
+  /* ===================== لینک فعال ناوبری ===================== */
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('main section[id]');
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.toggle('is-active', link.dataset.section === entry.target.id));
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(s => sectionObserver.observe(s));
 
-function bldPty(title,p,C){
-var h='<div style="border:1px solid '+C+';margin-top:5px;overflow:hidden"><div style="background:'+C+';color:#fff;padding:2px 8px;font-weight:700;font-size:10.5px">'+title+'</div>';
-h+='<table style="width:100%;border-collapse:collapse;font-size:9.5px">';
-h+='<tr><td style="border:1px solid #ddd;padding:2px 5px;width:30%">نام شخص حقیقی / حقوقی : <b>'+p.n+'</b></td><td style="border:1px solid #ddd;padding:2px 5px;width:25%">شماره اقتصادی : '+p.e+'</td><td style="border:1px solid #ddd;padding:2px 5px">شماره ثبت : '+p.r+'</td></tr>';
-h+='<tr><td style="border:1px solid #ddd;padding:2px 5px" colspan="2">نشانی کامل : '+p.a+'</td><td style="border:1px solid #ddd;padding:2px 5px">کد پستی ده رقمی : '+p.po+'</td></tr>';
-h+='<tr><td style="border:1px solid #ddd;padding:2px 5px">استان : '+p.p+'</td><td style="border:1px solid #ddd;padding:2px 5px">شهرستان : '+p.c+'</td><td style="border:1px solid #ddd;padding:2px 5px">شناسه ملی : '+p.na+'</td></tr>';
-h+='<tr><td style="border:1px solid #ddd;padding:2px 5px" colspan="3">تلفن / فکس : '+p.ph+'</td></tr>';
-h+='</table></div>';return h}
+  /* ===================== تاست ===================== */
+  const toastBox = document.getElementById('toastBox');
+  function toast(message, success) {
+    if (success === undefined) success = true;
+    const el = document.createElement('div');
+    el.className = 'toast-enter flex items-center gap-2 px-5 py-3 rounded-xl shadow-2xl text-xs font-medium text-white pointer-events-auto ' + (success ? 'bg-emerald-600' : 'bg-red-600');
+    el.setAttribute('role', 'status');
+    el.innerHTML = '<iconify-icon icon="' + (success ? 'lucide:check-circle' : 'lucide:alert-circle') + '" width="15"></iconify-icon>' + message;
+    toastBox.appendChild(el);
+    setTimeout(function () {
+      el.classList.add('toast-exit');
+      setTimeout(function () { el.remove(); }, 300);
+    }, 3500);
+  }
 
-function bldSmp(d){
-var C=d.col,cr=d.cur,its=d.items,vp=d.vatOn?d.vatP:0,pf=d.pre?'پیش ':'';
-var sT=0,sD=0,sA=0,sX=0,sG=0;
-its.forEach(function(it){var t=it.qty*it.price,a=t-it.disc,x=a*vp/100,g=a+x;sT+=t;sD+=it.disc;sA+=a;sX+=x;sG+=g});
-var h='<div style="padding:18px 22px;font-size:11.5px;line-height:1.7;color:#111">';
-h+='<div style="display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid '+C+';padding-bottom:12px;margin-bottom:14px;gap:10px">';
-h+='<div style="flex-shrink:0">';if(d.logo)h+='<img src="'+d.logo+'" style="height:50px;max-width:130px;object-fit:contain">';h+='</div>';
-h+='<div style="text-align:center;flex:1"><div style="font-size:17px;font-weight:900;color:'+C+';margin-bottom:4px">'+pf+'فاکتور فروش</div><div style="font-size:10.5px;color:#555">شماره : <b style="color:#111">'+(d.num?fa(d.num):'ـــ')+'</b> &nbsp;|&nbsp; تاریخ : <b style="color:#111">'+(d.date?fa(d.date):'ـــ')+'</b></div></div>';
-h+='<div style="flex-shrink:0;width:50px"></div></div>';
-if(d.s.n||d.b.n){
-h+='<div style="display:flex;gap:14px;margin-bottom:12px">';
-if(d.s.n)h+='<div style="flex:1;background:'+C+'08;border:1px solid '+C+'30;border-radius:7px;padding:8px;font-size:10.5px"><b style="color:'+C+'">فروشنده :</b> '+d.s.n+(d.s.ph?' | تلفن: '+d.s.ph:'')+'</div>';
-if(d.b.n)h+='<div style="flex:1;background:'+C+'08;border:1px solid '+C+'30;border-radius:7px;padding:8px;font-size:10.5px"><b style="color:'+C+'">خریدار :</b> '+d.b.n+(d.b.ph?' | تلفن: '+d.b.ph:'')+'</div>';
-h+='</div>'}
-h+='<table style="width:100%;border-collapse:collapse;font-size:10.5px;margin-bottom:12px"><thead><tr style="background:'+C+';color:#fff">';
-['ردیف|32px','شرح کالا یا خدمات|auto','تعداد|52px','واحد|44px','مبلغ واحد ('+cr+')|82px','تخفیف ('+cr+')|72px','جمع ('+cr+')|82px'].forEach(function(t){var p=t.split('|');h+='<th style="padding:7px 5px;'+(p[1]!=='auto'?'width:'+p[1]+';':'')+'">'+p[0]+'</th>'});
-h+='</tr></thead><tbody>';
-its.forEach(function(it,i){var t=it.qty*it.price,a=t-it.disc,x=a*vp/100,g=a+x;var bg=i%2===0?'#fff':'#f9fafb';
-h+='<tr style="background:'+bg+'"><td style="padding:6px 5px;text-align:center;border-bottom:1px solid #eee">'+fa(i+1)+'</td><td style="padding:6px 5px;border-bottom:1px solid #eee">'+it.desc+'</td><td style="padding:6px 5px;text-align:center;border-bottom:1px solid #eee">'+fa(it.qty)+'</td><td style="padding:6px 5px;text-align:center;border-bottom:1px solid #eee">'+it.unit+'</td><td style="padding:6px 5px;text-align:left;border-bottom:1px solid #eee">'+fm(it.price)+'</td><td style="padding:6px 5px;text-align:left;border-bottom:1px solid #eee">'+fm(it.disc)+'</td><td style="padding:6px 5px;text-align:left;font-weight:600;border-bottom:1px solid #eee">'+fm(g)+'</td></tr>'});
-if(its.length===0)h+='<tr><td colspan="7" style="padding:18px;text-align:center;color:#aaa;border-bottom:1px solid #eee">آیتمی ثبت نشده</td></tr>';
-h+='</tbody></table>';
-h+='<div style="width:260px;margin-right:auto;background:#f9fafb;border:1px solid #e5e7eb;border-radius:9px;overflow:hidden;font-size:10.5px">';
-h+='<div style="display:flex;justify-content:space-between;padding:6px 12px;border-bottom:1px solid #e5e7eb"><span>جمع کل :</span><span>'+fm(sT)+' '+cr+'</span></div>';
-h+='<div style="display:flex;justify-content:space-between;padding:6px 12px;border-bottom:1px solid #e5e7eb"><span>جمع تخفیفات :</span><span>'+fm(sD)+' '+cr+'</span></div>';
-h+='<div style="display:flex;justify-content:space-between;padding:6px 12px;border-bottom:1px solid #e5e7eb"><span>جمع پس از تخفیف :</span><span>'+fm(sA)+' '+cr+'</span></div>';
-if(d.vatOn)h+='<div style="display:flex;justify-content:space-between;padding:6px 12px;border-bottom:1px solid #e5e7eb"><span>ارزش افزوده ('+fa(d.vatP)+'%) :</span><span>'+fm(sX)+' '+cr+'</span></div>';
-h+='<div style="display:flex;justify-content:space-between;padding:9px 12px;background:'+C+';color:#fff;font-weight:800;font-size:12.5px"><span>قابل پرداخت :</span><span>'+fm(sG)+' '+cr+'</span></div></div>';
-if(d.no||d.ca||d.nc){h+='<div style="margin-top:12px;font-size:10.5px;color:#555">';if(d.ca||d.nc)h+='شرایط فروش : '+(d.ca?'نقدی':'')+(d.ca&&d.nc?' - ':'')+(d.nc?'غیرنقدی':'')+' &nbsp;|&nbsp; ';h+='توضیحات : '+(d.no||'ـــ')+'</div>'}
-/* بخش اصلاح شده مهر و امضا با تراز دقیق */
-h+='<div style="display:flex;justify-content:space-between;margin-top:24px;font-size:10.5px">';
-h+='<div style="text-align:center;width:44%;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;">';
-if(d.stamp)h+='<img src="'+d.stamp+'" style="height:55px;max-width:85px;object-fit:contain;margin-bottom:4px;">';
-h+='<div style="border-top:1px solid #bbb;padding-top:5px;color:#777;width:100%;">مهر و امضای فروشنده</div></div>';
-h+='<div style="text-align:center;width:44%;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;">';
-h+='<div style="border-top:1px solid #bbb;padding-top:5px;color:#777;width:100%;">مهر و امضای خریدار</div></div></div>';
-return h+'</div>'}
+  /* ===================== ارسال فرم‌ها ===================== */
+  var WORKER_URL = 'https://late-thunder-183f.upgram.workers.dev/';
 
-function render(){clearTimeout(renderTO);renderTO=setTimeout(function(){document.getElementById('invprev').innerHTML=bldInv(gD())},60)}
+  async function sendForm(form) {
+    var data = new FormData(form);
+    if (data.get('_h')) return;
 
-function scPr(){
-var s=document.getElementById('PSc'),inv=document.getElementById('invprev');
-if(!s||!inv)return;
-var w=s.clientWidth-20;
-if(w<=0)return;
-var sc=Math.min(w/800,1);
-inv.style.transform='scale('+sc+')';
-inv.style.transformOrigin='top right';
-}
+    var name = (data.get('name') || '').trim();
+    var phone = (data.get('phone') || '').trim();
 
-function printInv(){
-var content=document.getElementById('invprev').innerHTML;
-var w=window.open('','','width=900,height=700');
-if(!w){toast('مرورگر پنجره چاپ را مسدود کرد. لطفاً Popup Blocker را غیرفعال کنید','e');return}
-w.document.write('<!DOCTYPE html><html dir="rtl"><head><meta charset="UTF-8"><title>چاپ مستقیم فاکتور</title><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Vazirmatn,sans-serif;padding:10px;}@media print{body{padding:0;margin:0}@page{margin:12mm 10mm 12mm 10mm}}</style></head><body><div style="width:100%;max-width:800px;margin:0 auto;font-size:11px;line-height:1.6;color:#111">'+content+'</div><script>setTimeout(function(){window.print();window.close()},600)<\/script></body></html>');
-w.document.close()}
+    if (!name || !phone) { toast('نام و موبایل الزامی است', false); return; }
+    if (!/^09[0-9]{9}$/.test(phone)) { toast('شماره موبایل نامعتبر است', false); return; }
 
-/* تابع اختصاصی دانلود عکس با کیفیت بالا */
-async function dlImg(){
-document.getElementById('LO').style.display='flex';
-var tmp=document.createElement('div');
-tmp.style.cssText='position:fixed;left:-9999px;top:0;width:800px;background:#fff;z-index:-1;pointer-events:none';
-tmp.innerHTML=bldInv(gD());
-document.body.appendChild(tmp);
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var originalLabel = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<iconify-icon icon="lucide:loader-2" width="14" class="animate-spin"></iconify-icon> ارسال...';
+    submitBtn.disabled = true;
 
-var proms=[];
-tmp.querySelectorAll('img').forEach(function(img){
-if(img.src && !img.complete){
-proms.push(new Promise(function(res){img.onload=res;img.onerror=res}));
-}
-});
-await Promise.all(proms);
-await new Promise(function(r){setTimeout(r,500)});
+    var payload = {
+      name: name,
+      phone: phone,
+      landline: data.get('landline') || '',
+      service: data.get('service') || '',
+      sub: data.get('sub') || '',
+      message: data.get('message') || ''
+    };
 
-try {
-var canvas=await html2canvas(tmp,{scale:2,backgroundColor:'#ffffff',useCORS:true,allowTaint:true,logging:false});
-var link=document.createElement('a');
-link.download='factor-1001.png';
-link.href=canvas.toDataURL('image/png');
-link.click();
-toast('فایل عکس فاکتور با موفقیت دانلود شد','s');
-} catch(err) {
-console.error(err);
-toast('خطا در تولید فایل عکس','e');
-} finally {
-document.body.removeChild(tmp);
-document.getElementById('LO').style.display='none';
-}
-}
+    try {
+      var res = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      var result = await res.json();
+      if (result.success) {
+        toast('درخواست شما ثبت شد. به زودی تماس می‌گیریم.');
+        form.reset();
+      } else {
+        toast('خطا در ارسال. دوباره تلاش کنید.', false);
+      }
+    } catch (err) {
+      toast('خطا در ارتباط با سرور.', false);
+      console.error(err);
+    } finally {
+      submitBtn.innerHTML = originalLabel;
+      submitBtn.disabled = false;
+    }
+  }
 
-async function dlPDF(){
-await document.fonts.ready;
-document.getElementById('LO').style.display='flex';
+  ['adminForm', 'regForm'].forEach(function (id) {
+    var form = document.getElementById(id);
+    if (form) form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      sendForm(form);
+    });
+  });
 
-var tmp=document.createElement('div');
-tmp.style.cssText='position:fixed;left:-9999px;top:0;width:800px;background:#fff;z-index:-1;pointer-events:none';
-tmp.innerHTML=bldInv(gD());
-document.body.appendChild(tmp);
-
-var imgs=tmp.querySelectorAll('img');
-var proms=[];
-imgs.forEach(function(img){
-if(img.src && !img.complete){
-proms.push(new Promise(function(res){img.onload=res;img.onerror=res}));
-}
-});
-await Promise.all(proms);
-await new Promise(function(r){setTimeout(r,800)});
-
-try{
-var canvas=await html2canvas(tmp,{
-scale:2,
-backgroundColor:'#ffffff',
-useCORS:true,
-allowTaint:true,
-logging:false,
-width:800,
-windowWidth:800
-});
-
-if(!canvas || canvas.width===0 || canvas.height===0){
-toast('خطا: ساختار فاکتور برای خروجی خالی است','e');
-return;
-}
-
-var jsPDF=window.jspdf.jsPDF;
-var pdf=new jsPDF('p','mm','a4');
-var pw=210; 
-var ph=297; 
-var margin=10; 
-var mw=pw-(margin*2);
-var mh=ph-(margin*2);
-
-var imgWidth=canvas.width;
-var imgHeight=canvas.height;
-var pxPageHeight=(mh*imgWidth)/mw;
-
-var sY=0;
-while(sY<imgHeight){
-if(sY>0) pdf.addPage();
-var sH=Math.min(pxPageHeight,imgHeight-sY);
-
-var sliceCanvas=document.createElement('canvas');
-sliceCanvas.width=imgWidth;
-sliceCanvas.height=sH;
-var ctx=sliceCanvas.getContext('2d');
-ctx.drawImage(canvas,0,sY,imgWidth,sH,0,0,imgWidth,sH);
-
-var sliceData=sliceCanvas.toDataURL('image/png',1.0);
-var slicePdfH=(sH*mw)/imgWidth;
-
-pdf.addImage(sliceData,'PNG',margin,margin,mw,slicePdfH);
-sY+=pxPageHeight;
-}
-
-pdf.save('factor-1001.pdf');
-toast('فایل PDF با حاشیه استاندارد دانلود شد','s');
-
-}catch(err){
-console.error('PDF Error:',err);
-toast('خطا در تولید فایل PDF: '+err.message,'e');
-}finally{
-document.body.removeChild(tmp);
-document.getElementById('LO').style.display='none';
-}
-}
-
-function toast(m,t){var d=document.createElement('div');d.className='tt tt-'+t;d.innerHTML='<i class="fas fa-'+(t==='s'?'check-circle':'exclamation-triangle')+'"></i> '+m;document.getElementById('TC').appendChild(d);requestAnimationFrame(function(){d.classList.add('shw')});setTimeout(function(){d.classList.remove('shw');setTimeout(function(){d.remove()},300)},3000)}
-
-function onRS(){
-var g=document.getElementById('MG');
-var p=document.getElementById('PP');
-var btnText=document.getElementById('prevBtnText');
-var btnIcon=document.getElementById('prevBtnIcon');
-var mobBtn=document.getElementById('mobPrevBtn');
-if(!g)return;
-
-if(!isPreviewVisible){
-g.style.gridTemplateColumns='1fr';
-if(p) p.style.display='none';
-if(btnText) btnText.textContent='نمایش پیش‌نمایش';
-if(btnIcon) btnIcon.className='fas fa-eye';
-if(mobBtn) mobBtn.style.display='none';
-}else{
-if(window.innerWidth<1023){
-g.style.gridTemplateColumns='1fr';
-if(p) {
-p.style.display='block';
-p.style.position='static';
-p.style.height='auto';
-}
-if(mobBtn) mobBtn.style.display='inline-flex';
-}else{
-g.style.gridTemplateColumns='1fr 420px';
-if(p) {
-p.style.display='block';
-p.style.position='sticky';
-p.style.top='70px';
-p.style.height='calc(100vh - 90px)';
-}
-if(mobBtn) mobBtn.style.display='none';
-}
-if(btnText) btnText.textContent='مخفی‌سازی پیش‌نمایش';
-if(btnIcon) btnIcon.className='fas fa-eye-slash';
-}
-scPr();
-}
-
-window.addEventListener('load',function(){initCol();initDt();addItem();onRS();document.getElementById('invprev').innerHTML=bldInv(gD())});
-window.addEventListener('resize',onRS);
+})();
 </script>
 </body>
 </html>
